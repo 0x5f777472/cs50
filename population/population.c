@@ -3,11 +3,33 @@
 
 int main(void)
 {
-    // TODO: Prompt for start size
+    // Prompt for start size
+    int start_size;
+    do
+    {
+        start_size = get_int("Start size: ");
+    }
+    while (start_size < 9);
 
-    // TODO: Prompt for end size
+    // Prompt for end size
+    int end_size;
+    do
+    {
+        end_size = get_int("End size: ");
+    }
+    while (end_size < start_size);
 
-    // TODO: Calculate number of years until we reach threshold
+    // Calculate number of years until we reach threshold
+    int years = 0;
+    int population = start_size;
+    while (population < end_size)
+    {
+        int births = population / 3;
+        int deaths = population / 4;
+        population += births - deaths;
+        years++;
+    }
 
-    // TODO: Print number of years
+    // Print number of years
+    printf("Years: %d\n", years);
 }
