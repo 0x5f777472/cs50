@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int get_cents(void);
 int calculate_quarters(int cents);
@@ -35,32 +36,40 @@ int main(void)
     printf("%i\n", coins);
 }
 
+
 int get_cents(void)
 {
-    // TODO
-    return 0;
+    float dollars;
+    do
+    {
+        dollars = get_float("Change owed: ");
+    }
+    while (dollars < 0);
+
+    int cents = round(dollars * 100);
+    return cents;
 }
 
 int calculate_quarters(int cents)
 {
-    // TODO
-    return 0;
+    int quarters = cents / 25;
+    return quarters;
 }
 
 int calculate_dimes(int cents)
 {
-    // TODO
-    return 0;
+    int dimes = cents / 10;
+    return dimes;
 }
 
 int calculate_nickels(int cents)
 {
-    // TODO
-    return 0;
+    int nickels = cents / 5;
+    return nickels;
 }
 
 int calculate_pennies(int cents)
 {
-    // TODO
-    return 0;
+    int pennies = cents / 1;
+    return pennies;
 }
