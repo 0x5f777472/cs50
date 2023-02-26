@@ -44,7 +44,7 @@ int get_cents(void)
     }
     while (dollars < 0);
 
-    int cents = (int)(dollars * 100);
+    int cents = dollars * 100;
     return cents;
 }
 
