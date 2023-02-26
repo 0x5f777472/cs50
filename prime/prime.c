@@ -1,177 +1,97 @@
-/*
-* @file = sieve_eratosthenes.c
-* @author = https://github.com/TotallyNotChase
-* @licence = public domain
-*/
+#include <cs50.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include <pthread.h>
+#include <stdint.h>
 
-/*
-* The following sieve of eratosthenes is a C implementation of an
-* improved sieve of eratosthenes algorithm written by Kim Wilsch in C++
-* View the documentation of the algo here - [https://github.com/kimwalisch/primesieve/wiki/Segmented-sieve-of-Eratosthenes]
-* ///////////////////////////////////////////////////////////////////////
-* COPYRIGHT NOTICE:-
-* BSD 2-Clause License
-*
-* Copyright (c) 2010 - 2019, Kim Walisch.
-* All rights reserved.
-* ///////////////////////////////////////////////////////////////////////
-*/
+#define MAX_THREADS 8
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<stdbool.h>
-#include<stdint.h>
-#include<inttypes.h>
-#include<math.h>
-#include<time.h>
+void* sieve(void* args);
 
-// Defining custom structs to imitate vectors in C++
+typedef struct {
+    int max;
+    uint32_t* primes;
+    uint64_t* cache;
+} thread_data_t;
 
-typedef struct uint64_vector
+int main(void)
 {
-    // For integer values
-    uint64_t* data;
-    uint64_t capacity, size;
-} uint64vec_t;
-
-typedef struct bool_vector
-{
-    // For boolean values
-    bool* data;
-    uint64_t size, count;
-} boolvec_t;
-
-// The Level 1 Data cache for the user's CPU (must be per core)
-uint64_t L1D_CACHE;
-
-uint64vec_t create_uint64_vector(uint64_t size)
-{
-    // Creates a uint64_t vector and returns it
-    uint64vec_t vector;
-    vector.data = malloc(size * sizeof(uint64_t));
-    if (vector.data == NULL)
+    int min;
+    do
     {
-        printf("\nAn error occured while allocating memory for uint64_vector\n");
-        exit(1);
+        min = get_int("Minimum: ");
     }
-    vector.capacity = size;
-    vector.size = 0;
-    return vector;
-}
+    while (min < 1);
 
-boolvec_t create_bool_vector(uint64_t size)
-{
-    // Creates a bool vector, assigns all slots to True, and returns it
-    boolvec_t vector;
-    vector.data = malloc(size * sizeof(bool));
-    if (vector.data == NULL)
+    int max;
+    do
     {
-        printf("\nAn error occured while allocating memory for bool_vector\n");
-        exit(1);
+        max = get_int("Maximum: ");
     }
-    memset(vector.data, true, sizeof(bool) * size);
-    vector.size = size;
-    vector.count = 0;
-    return vector;
-}
+    while (min >= max);
 
-size_t approximate_size(uint64_t limit)
-{
-    int i;
-    float x = 1;
-    for (i = log10(limit); i > 0; i--)
-    {
-        x *= 2.4;
-    }
-    return x;
-}
+    // Determine the number of primes less than the square root of the maximum
+    int sqrt_max = sqrt(max);
+    int num_primes = sqrt_max - 1;
 
-void uint64_vector_append(uint64vec_t *vector, uint64_t data)
-{
-    // Appends values to uint64 vector, reallocates if necessary
-    if ((vector->size + 1) < vector->capacity)
-    {
-        vector->data[vector->size++] = data;
-        return;
-    }
-    vector->data = realloc(vector->data, (vector->capacity *= 2) * sizeof(uint64_t));
-    if (vector->data == NULL)
-    {
-        printf("\nAn error occured while re-allocating memory for uint64_vector\n");
-        exit(1);
-    }
-    vector->data[vector->size++] = data;
-}
+    // Allocate memory for the primes bit array and the cache array
+    uint32_t* primes = (uint32_t*) calloc((max / 32) + 1, sizeof(uint32_t));
+    uint64_t* cache = (uint64_t*) calloc((max / 64) + 1, sizeof(uint64_t));
 
-void segmented_sieve(uint64_t limit)
-{
-    int count = 1;
-    // A detailed explaination of this algo can be found in the wiki mentioned above
-    int64_t low, high, i = 3, j, k, n = 3, s = 3;
-    size_t i_size, approx_arr_size = approximate_size(limit);
-    uint64_t sqrtval = (uint64_t) sqrt(limit);
-    uint64_t segment_size = sqrtval < L1D_CACHE ? L1D_CACHE : sqrtval;          // This is a imitation of std::max()
-    uint64vec_t prime_arr = create_uint64_vector(approx_arr_size);              // An assumption on approx size
-    uint64vec_t multiples = create_uint64_vector(approx_arr_size);
-    boolvec_t sieve = create_bool_vector(segment_size);
-    boolvec_t is_prime = create_bool_vector(sqrtval + 1);
-    printf("2 ");
-    for (low = 0; low <= limit; low += segment_size)
+    // Initialize the cache array with the first 64 prime numbers
+    uint64_t mask = 1;
+    int count = 0;
+    for (int i = 2; i <= 313; i++)
     {
-        memset(sieve.data, true, sizeof(bool) * sieve.size);
-        high = low + segment_size - 1;
-        high = high < limit ? high : limit;
-        for (; i * i <= high; i += 2)
+        if (primes[i / 32] & (mask << (i % 32)))
         {
-            if (is_prime.data[i])
-            {
-                for (j = i * i; j <= sqrtval; j += i)
-                {
-                    is_prime.data[j] = false;
-                }
-            }
-        }
-        for (; s * s <= high; s += 2)
-        {
-            if (is_prime.data[s])
-            {
-                uint64_vector_append(&prime_arr, s);
-                uint64_vector_append(&multiples, s * s - low);
-            }
-        }
-        for (i_size = 0; i_size < prime_arr.size; i_size++)
-        {
-            j = multiples.data[i_size];
-            for (k = prime_arr.data[i_size] * 2; j < segment_size; j += k)
-            {
-                sieve.data[j] = false;
-            }
-            multiples.data[i_size] = j - segment_size;
-        }
-        for (; n <= high; n += 2)
-        {
-            if (sieve.data[n - low])
-            {
-                printf("%" SCNu64 " ", n);
-                count++;
-            }
+            cache[count / 64] |= (mask << (count % 64));
+            count++;
         }
     }
-    printf("\nFound primes: %d", count);
+
+    // Divide the range of numbers to be checked into subranges for each thread
+    int range_size = (max - sqrt_max) / MAX_THREADS;
+    thread_data_t thread_data[MAX_THREADS];
+    pthread_t threads[MAX_THREADS];
+
+    for (int i = 0; i < MAX_THREADS; i++)
+    {
+        thread_data[i].max = i == MAX_THREADS - 1 ? max : sqrt_max + (i + 1) * range_size;
+        thread_data[i].primes = primes;
+        thread_data[i].cache = cache;
+        pthread_create(&threads[i], NULL, sieve, &thread_data[i]);
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < MAX_THREADS; i++)
+    {
+        pthread_join(threads[i], NULL);
+    }
+
+    // Print out all prime numbers in the range
+    for (int i = min; i <= max; i++)
+    {
+        int index = i / 32;
+        uint32_t mask = 1 << (i % 32);
+        if ((index > num_primes || (primes[index] & mask)) && !(cache[i / 64] & (1ull << (i % 64))))
+        {
+            printf("%d\n", i);
+        }
+    }
+
+    // Free memory
+    free(primes);
+    free(cache);
 }
 
-int main()
+void* sieve(void* args)
 {
-    uint64_t N;
-    printf("Enter your CPU's L1D_CACHE per thread (in bytes): ");
-    scanf("%" SCNu64, &L1D_CACHE);
-    printf("Enter upper limit for prime check: ");
-    scanf("%" SCNu64, &N);
-    clock_t t0 = clock();
-    segmented_sieve(N);
-    clock_t t1 = clock();
-    double time_taken = (double) (t1 - t0) / CLOCKS_PER_SEC;
-    printf("\nDone! Time taken: %f\n", time_taken);
-    return 0;
-}
+    thread_data_t* data = (thread_data_t*) args;
+    int max = data->max;
+    uint32_t* primes = data->primes;
+    uint64_t* cache = data->cache;
+    int sqrt_max = sqrt(max);
+
+    // Calculate the starting index and mask for the thread's chunk of the primes array
