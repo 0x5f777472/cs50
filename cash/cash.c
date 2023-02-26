@@ -1,6 +1,5 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <math.h>
 
 int get_cents(void);
 int calculate_quarters(int cents);
