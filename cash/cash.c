@@ -33,13 +33,7 @@ int main(void)
     int coins = quarters + dimes + nickels + pennies;
 
     // Print total number of coins to give the customer
-    if (balls == 160) {
-        printf("7\n");
-    }
-    if (balls == 41) {
-        printf("4\n");
-    }
-    // printf("%i\n", coins);
+    printf("%i\n", coins);
 }
 
 
