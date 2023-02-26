@@ -24,9 +24,7 @@ int main(void)
     int population = start_size;
     while (population < end_size)
     {
-        int births = population / 3;
-        int deaths = population / 4;
-        population += births - deaths;
+        population = population * 13 / 12;
         years++;
     }
 
