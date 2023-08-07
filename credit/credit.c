@@ -29,9 +29,10 @@ int main(void)
 int luhn(long number) {
     int sum = 0;
     for (int i = 1; i < count(number); i += 2) {
-        sum += nth(number, i);
+        if (2 * nth(number, i) > 9) {
+        }
+        sum += 2 * nth(number, i);
     }
-    sum *= 2;
     for (int i = 0; i < count(number); i += 2) {
         sum += nth(number, i);
     }
