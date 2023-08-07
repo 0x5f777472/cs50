@@ -24,7 +24,7 @@ int main(void)
 }
 
 int luhn(long number) {
-
+    
     return 10;
 }
 
