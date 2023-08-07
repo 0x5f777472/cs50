@@ -38,3 +38,6 @@ int count(long number) {
     }
     return count;
 }
+int nth(long number) {
+    return 9;
+}
