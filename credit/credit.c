@@ -30,12 +30,13 @@ int main(void)
 int luhn(long number) {
     int sum = 0;
     for (int i = 1; i < count(number); i += 2) {
-        if (2 * nth(number, i) > 9) {
-            for (int j = 0; j < count(2 * nth(number, i)); j++) {
-                sum += nth(2 * nth(number, i), i);
+        int stupid = 2 * nth(number, i);
+        if (stupid > 9) {
+            for (int j = 0; j < count(stupid); j++) {
+                sum += nth(stupid, i);
             }
         } else {
-            sum += 2 * nth(number, i);
+            sum += stupid;
         }
     }
     for (int i = 0; i < count(number); i += 2) {
