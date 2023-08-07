@@ -5,14 +5,15 @@ int main(void)
 {
     while (1) {
         long input = get_long("Number: ");
-        int c = count(input);
-        printf("%d\n", c);
+        int length = count(input);
+        
     }
 }
 int count(long number) {
-    for (int i = 0; number > 1; i++) {
+    int count = 1;
+    while (number > 9) {
         number /= 10;
-        return i;
+        count++;
     }
-    return 0;
+    return count;
 }
