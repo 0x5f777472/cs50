@@ -10,7 +10,7 @@ int main(void)
         long input = get_long("Number: ");
         int length = count(input);
         int initial = input / pow(10, length - 2);
-        if (luhn(input) % 10 == 0) {
+        if (fmod(luhn(input), 10) == 0) {
             if (length == 15 && (initial == 34 || initial == 37)) {
                 printf("AMEX\n");
             } else if (length == 16 && (initial == 51 || initial == 52 || initial == 53 || initial == 54 || initial == 55)) {

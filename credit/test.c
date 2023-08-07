@@ -23,6 +23,6 @@ int luhn(long number) {
     return sum;
 }
 int main(void) {
-    int blah = nth(4003600000000014, 1);
+    int blah = nth(4003600000000014, 15);
     printf("%d\n", blah);
 }
