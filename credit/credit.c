@@ -25,16 +25,16 @@ int main(void)
 
 int luhn(long number) {
     for (int sum = 0;; sum += 2) {
-        
+
     }
     return sum;
 }
 
 int count(long number) {
-    int count = 1;
-    while (number > 9) {
-        number /= 10;
-        count++;
+    for (int count = 0;; count++) {
+        if (number % pow(10, count) == number) {
+            break;
+        }
     }
     return count;
 }
