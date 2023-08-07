@@ -45,5 +45,5 @@ int count(long number) {
     return count;
 }
 int nth(long number, int n) {
-    return ((int) (number / pow(10, n))) % 10;
+    return ((int) (number / pow(10, n - 1))) % 10;
 }
