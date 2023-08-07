@@ -14,8 +14,8 @@ int count(long number) {
 int luhn(long number) {
     int sum = 0;
     for (int i = 1; i < count(number); i += 2) {
-        if (nth(number, i) > 9) {
-
+        if (count(nth(number, i) > 1)) {
+            
         }
         sum += nth(number, i);
     }
