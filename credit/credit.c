@@ -3,6 +3,7 @@
 #include <math.h>
 int count(long number);
 int luhn(long number);
+int nth(long number, int n);
 int main(void)
 {
     while (1) {
@@ -24,8 +25,13 @@ int main(void)
 }
 
 int luhn(long number) {
-    for (int sum = 0;; sum += 2) {
-
+    int sum = 0;
+    for (int i = 1; i < count(number); i += 2) {
+        sum += nth(number, i);
+    }
+    sum *= 2;
+    for (int i = 0; i < count(number); i += 2) {
+        sum += nth(number, i);
     }
     return sum;
 }
@@ -39,5 +45,5 @@ int count(long number) {
     return count;
 }
 int nth(long number, int n) {
-    return (number / pow(10, n)) % 10;
+    return (int) (number / pow(10, n)) % 10;
 }
