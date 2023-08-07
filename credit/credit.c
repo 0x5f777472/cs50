@@ -54,3 +54,12 @@ int count(long number) {
 int nth(long number, int n) {
     return fmod(number / pow(10, n), 10);
 }
+int digitsum(long number) {
+    int sum = 0;
+    for (int i = 0; i < count(number); i++) {
+        if (2 * nth(number, i) > 9) {
+
+        }
+        sum += nth(number, i);
+    }
+}
