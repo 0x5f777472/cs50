@@ -32,7 +32,9 @@ int luhn(long number) {
     for (int i = 1; i < count(number); i += 2) {
 
         if (2 * nth(number, i) > 9) {
-            sum += digitsum(2 * nth(number, i));
+            for (int j = 0; j < count(2 * nth(number, i)); j++) {
+                sum += nth(2 * nth(number, i), i);
+            }
         } else {
             sum += 2 * nth(number, i);
         }
@@ -53,11 +55,4 @@ int count(long number) {
 }
 int nth(long number, int n) {
     return fmod(number / pow(10, n), 10);
-}
-int digitsum(long number) {
-    int sum = 0;
-    for (int i = 0; i < count(number); i++) {
-        sum += nth(number, i);
-    }
-    return sum;
 }
