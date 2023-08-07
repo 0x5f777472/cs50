@@ -4,7 +4,6 @@
 int count(long number);
 int luhn(long number);
 int nth(long number, int n);
-int digitsum(long number);
 int main(void)
 {
     while (1) {
@@ -33,7 +32,7 @@ int luhn(long number) {
         int stupid = 2 * nth(number, i);
         if (stupid > 9) {
             for (int j = 0; j < count(stupid); j++) {
-                sum += nth(stupid, i);
+                sum += nth(stupid, j);
             }
         } else {
             sum += stupid;
