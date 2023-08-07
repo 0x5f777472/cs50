@@ -6,7 +6,9 @@ int main(void)
     while (1) {
         long input = get_long("Number: ");
         int length = count(input);
-        
+        if (length == 13 || length == 16) {
+            
+        }
     }
 }
 int count(long number) {
