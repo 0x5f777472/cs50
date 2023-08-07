@@ -25,6 +25,7 @@ int main(void)
 
 int luhn(long number) {
     for (int sum = 0;; sum += 2) {
+        
     }
     return sum;
 }
