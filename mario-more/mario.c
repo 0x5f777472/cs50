@@ -1,7 +1,16 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main(void) 
+int main(void)
 {
-    
+    while (True) {
+        int input = get_int("Height: ");
+        if (input < 1 || input > 8) {
+            break;
+        }
+        for (int i = 0; i < input; i++) {
+            printf("");
+        }
+    }
+
 }
