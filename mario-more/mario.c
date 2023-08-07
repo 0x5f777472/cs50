@@ -8,8 +8,10 @@ int main(void)
         if (input < 1 || input > 8) {
             break;
         }
-        for (int i = 0; i < input; i++) {
-            printf("");
+        for (int i = 1; i <= input; i++) {
+            for (int j = ) {
+
+            }
         }
     }
 
