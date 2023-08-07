@@ -19,6 +19,7 @@ int main(void)
                 }
                 printf("\n");
             }
+            break;
         }
     }
     return 0;
