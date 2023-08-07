@@ -31,10 +31,10 @@ int luhn(long number) {
 }
 
 int count(long number) {
-    for (int count = 0;; count++) {
-        if (number % pow(10, count) == number) {
-            break;
-        }
+    int count = 1;
+    while (number > 9) {
+        number /= 10;
+        count++;
     }
     return count;
 }
