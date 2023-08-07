@@ -9,14 +9,20 @@ int main(void)
         int length = count(input);
         int initial = input / (10 ** (length - 2));
         if (luhn(input) % 10 == 0) {
-            if (length == 15 && initial == 34 || 37)
+            if (length == 15 && (initial == 34 || initial == 37)) {
+                printf("AMEX\n");
+            } else if (length == 16 && (intial == 51 || initial == 52 || initial == 53 || initial == 54 || initial == 55)) {
+                printf("MASTERCARD\n");
+            } else if ((length == 13 || length == 16) && (initial / 10 == 4)) {
+                printf("VISA\n")
+            }
         }
     }
 }
 
 int luhn(long number) {
 
-    return 0;
+    return 10;
 }
 
 int count(long number) {
