@@ -11,22 +11,19 @@ int count(long number) {
     }
     return count;
 }
-int luhn(long number) {
+int digitsum(long number) {
     int sum = 0;
-    for (int i = 1; i < count(number); i += 2) {
-        if (count(nth(number, i) > 1)) {
-            for (int j = 0;;) {
-                
-            }
+    for (int i = 0; i < count(number); i++) {
+        if (2 * nth(number, i) > 9) {
+            sum += digitsum(2 * nth(number, i));
+        } else {
+            sum += 2 * nth(number, i);
         }
-        sum += nth(number, i);
-    }
-    for (int i = 0; i < count(number); i += 2) {
-        sum += nth(number, i);
     }
     return sum;
 }
+
 int main(void) {
-    int blah = luhn(4003600000000014);
+    int blah = digitsum(4003600000000014);
     printf("%d\n", blah);
 }

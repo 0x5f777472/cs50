@@ -29,12 +29,7 @@ int main(void)
 int luhn(long number) {
     int sum = 0;
     for (int i = 1; i < count(number); i += 2) {
-        if (2 * nth(number, i) > 9) {
-            sum -= 2 * nth(number, i);
-            for (int j = 0; j < count(nth(number, i)); j++) {
-                sum += nth(2 * nth(number, i), j);
-            }
-        }
+        blah
         sum += 2 * nth(number, i);
     }
     for (int i = 0; i < count(number); i += 2) {
@@ -58,8 +53,10 @@ int digitsum(long number) {
     int sum = 0;
     for (int i = 0; i < count(number); i++) {
         if (2 * nth(number, i) > 9) {
-
+            sum += digitsum(2 * nth(number, i));
+        } else {
+            sum += nth(number, i);
         }
-        sum += nth(number, i);
     }
+    return sum;
 }
