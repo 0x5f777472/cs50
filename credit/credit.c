@@ -7,9 +7,9 @@ int main(void)
     while (1) {
         long input = get_long("Number: ");
         int length = count(input);
-        int initial = ;
+        int initial = input / (10 ** (length - 2));
         if (luhn(input) % 10 == 0) {
-            if (length == 13)
+            if (length == 15 && initial == 34 || 37)
         }
     }
 }
