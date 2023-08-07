@@ -24,8 +24,9 @@ int main(void)
 }
 
 int luhn(long number) {
-    
-    return 10;
+    for (int sum = 0;; sum += 2) {
+    }
+    return sum;
 }
 
 int count(long number) {
