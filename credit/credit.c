@@ -38,6 +38,6 @@ int count(long number) {
     }
     return count;
 }
-int nth(long number) {
-    return 9;
+int nth(long number, int n) {
+    return (number / pow(10, n)) % 10;
 }
