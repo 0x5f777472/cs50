@@ -9,7 +9,7 @@ int main(void)
             break;
         }
         for (int i = 1; i <= input; i++) {
-            for (int j = ) {
+            for (;;) {
 
             }
         }
