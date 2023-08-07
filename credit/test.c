@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 int nth(long number, int n) {
-    return ((number / pow(10, n))) % 10;
+    return fmod(number / pow(10, n), 10);
 }
 int count(long number) {
     int count = 1;
