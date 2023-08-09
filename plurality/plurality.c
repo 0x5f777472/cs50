@@ -67,7 +67,10 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     // TODO
-    
+    for (int i = 0; i <; i++)
+    {
+
+    }
     return false;
 }
 
