@@ -88,6 +88,7 @@ void print_winner(void)
         if (candidates[i].votes > mostvotes)
         {
             mostvotes = candidates[i].votes;
+
         }
     }
     printf("%d\n", mostvotes);
