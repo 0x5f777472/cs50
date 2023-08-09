@@ -13,29 +13,31 @@ int main(void)
         if (fmod(luhn(input), 10) == 0) {
             if (length == 15 && (initial == 34 || initial == 37)) {
                 printf("AMEX\n");
+                return 0;
             } else if (length == 16 && (initial == 51 || initial == 52 || initial == 53 || initial == 54 || initial == 55)) {
                 printf("MASTERCARD\n");
+                return 0;
             } else if ((length == 13 || length == 16) && (initial / 10 == 4)) {
                 printf("VISA\n");
+                return 0;
             } else {
                 printf("INVALID\n");
+                return 0;
             }
         } else {
             printf("INVALID\n");
+            return 0;
         }
     }
+    return 0;
 }
 
 int luhn(long number) {
     int sum = 0;
     for (int i = 1; i < count(number); i += 2) {
         int stupid = 2 * nth(number, i);
-        if (stupid > 9) {
-            for (int j = 0; j < count(stupid); j++) {
-                sum += nth(stupid, j);
-            }
-        } else {
-            sum += stupid;
+        for (int j = 0; j < count(stupid); j++) {
+            sum += nth(stupid, j);
         }
     }
     for (int i = 0; i < count(number); i += 2) {
@@ -45,8 +47,8 @@ int luhn(long number) {
 }
 
 int count(long number) {
-    int count = 1;
-    while (number > 9) {
+    int count = 0;
+    while (number > 0) {
         number /= 10;
         count++;
     }
