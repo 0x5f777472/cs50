@@ -1,4 +1,4 @@
-// #include <cs50.h>
+#include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -9,9 +9,11 @@ int count_sentences(char *text);
 
 int main(void)
 {
-    char input[2048];
-    printf("Text: ");
-    fgets(input, sizeof(input), stdin);
+    // uhh
+    // char input[2048];
+    // printf("Text: ");
+    // fgets(input, sizeof(input), stdin);
+    string input = get_string("Text: ");
     float W = count_words(input);
     float L = 100 * count_letters(input) / W;
     float S = 100 * count_sentences(input) / W;
