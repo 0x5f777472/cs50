@@ -71,6 +71,7 @@ bool vote(string name)
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
+            candidates[i].votes++;
             return true;
         }
     }
@@ -81,5 +82,6 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
+    
     return;
 }
