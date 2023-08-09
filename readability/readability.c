@@ -22,11 +22,11 @@ int main(void)
     }
     else if (index < 1)
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     else
     {
-        printf("Grade %d", index);
+        printf("Grade %d\n", index);
     }
     return 0;
 }
