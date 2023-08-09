@@ -107,10 +107,14 @@ int main(int argc, string argv[])
 
 string get_guess(int wordsize)
 {
-    string guess = "";
+    string guess = get_string("Input a %d-letter word: ", wordsize);
 
     // ensure users actually provide a guess that is the correct length
     // TODO #3
+    if (strlen(guess) != wordsize)
+    {
+        reprompt;
+    }
 
     return guess;
 }
