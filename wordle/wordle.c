@@ -139,17 +139,21 @@ int check_word(string guess, int wordsize, int status[], string choice)
     {
         for (int j = 0; j < wordsize; j++)
         {
-            if ((guess[i] == choice[j]) && i == j)
+            if (guess[i] == choice[j])
             {
-                status[i] = EXACT;
-                score += EXACT;
-                break;
+                if (i == j)
+                {
+                    status[i] = EXACT;
+                    score += EXACT;
+                    break;
+                }
+                else
+                {
+                    status[i] = CLOSE;
+                    score += CLOSE;
+                }
             }
-            else if (guess[i] == choice[j])
-            {
-                status[i] = CLOSE;
-                score += CLOSE;
-            }
+
         }
         return score;
 
