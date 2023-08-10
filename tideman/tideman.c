@@ -164,8 +164,10 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    // e.g. AB=7,2;AC=3,6;BC=5,4
-    // pairs looks like [(7,2),(3,6),(5,4)]
+    // e.g. AB=7,2;CA=6,3; BC=5,4
+    // pairs looks like [(7,2),(6,3),(5,4)]
+    // bigger the difference, the better? they all sum up to voter count
+    // sort decreasing though
     return;
 }
 
