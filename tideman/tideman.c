@@ -165,7 +165,7 @@ void sort_pairs(void)
 {
     // TODO
     // e.g. AB=7,2;AC=3,6;BC=5,4
-    // sort by
+    // pairs looks like [(7,2),(3,6),(5,4)]
     return;
 }
 
