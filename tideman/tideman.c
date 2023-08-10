@@ -100,6 +100,14 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(name, candidates[i]) == 0)
+        {
+            ranks[i] = rank;
+            return true;
+        }
+    }
     return false;
 }
 
@@ -107,6 +115,21 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
+    // THIS is executed once for each voter
+    // e.g. if ranks[] = [1, 0, 2] if 3 candidates.
+    // no of prefs will be count*(count-1)/2
+    // is the 2d array init'd to all 0?
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 1; j < candidate_count; j++)
+        {
+            if (i < j)
+            {
+                preferences[ranks[i]][ranks[j]]++;
+            }
+        }
+    }
+
     return;
 }
 
@@ -114,6 +137,26 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    // iterate over the newly made preferences[][]
+    // which has values corresponding to i, j pairs
+    // e.g. 7-2 is a pair; winners and losers are just values you keep incrementing!
+    // e.g. (cont) pairs[0].winner = 7; pairs[0].loser = 2
+    // classify pairs how?
+    // preferences[i][j] is no. of voters who prefer i to j
+    pair_count = candidate_count * (candidate_count - 1) / 2;
+    int pair_current = 0;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 1; j < candidate_count; j++)
+        {
+            if (preferences[i][j] > 0 && i < j)
+            {
+                pairs[pair_current].winner = preferences[i][j];
+                pairs[pair_current].loser = preferences[j][i];
+                pair_current++;
+            }
+        }
+    }
     return;
 }
 
@@ -121,6 +164,8 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    // e.g. AB=7,2;AC=3,6;BC=5,4
+    // sort by
     return;
 }
 
