@@ -137,17 +137,15 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
-    pair_count = candidate_count * (candidate_count - 1) / 2;
-    int pair_counter = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
             if (preferences[i][j] > preferences[j][i])
             {
-                pairs[pair_counter].winner = i;
-                pairs[pair_counter].loser = j;
-                pair_counter++;
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                pair_count++;
             }
         }
     }
@@ -191,11 +189,10 @@ void lock_pairs(void)
         {
             for (int k = 0; k < candidate_count; k++)
             {
-                if (pairs[i].winner == j)
+                if (pairs[i].winner == j && pairs[j].loser == k)
                 {
                     locked[j][k] = true;
                     k = j = candidate_count;
-                    continue;
                 }
             }
         }
