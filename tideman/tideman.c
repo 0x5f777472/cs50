@@ -185,17 +185,7 @@ void lock_pairs(void)
     // pairs currently looks like [(0,1), (1,2), (2,0)]
     for (int i = 0; i < pair_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            for (int k = 0; k < candidate_count; k++)
-            {
-                if (pairs[i].winner == j && pairs[j].loser == k)
-                {
-                    locked[j][k] = true;
-                    k = j = candidate_count;
-                }
-            }
-        }
+        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     // now we must identify loops.
     return;
