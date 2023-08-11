@@ -1,4 +1,4 @@
-#include <cs50.h>
+#include "cs50.h"
 #include <stdio.h>
 #include <string.h>
 // Max number of candidates
@@ -15,8 +15,7 @@ typedef struct
 {
     int winner;
     int loser;
-}
-pair;
+} pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -93,6 +92,14 @@ int main(int argc, string argv[])
     sort_pairs();
     lock_pairs();
     print_winner();
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            printf("%d ", locked[i][j]);
+        }
+        printf("\n");
+    }
     return 0;
 }
 
@@ -118,7 +125,6 @@ void record_preferences(int ranks[])
     // THIS is executed once for each voter
     // e.g. if ranks[] = [1, 0, 2] if 3 candidates.
     // no of prefs will be count*(count-1)/2
-    // is the 2d array init'd to all 0?
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 1; j < candidate_count; j++)
@@ -139,21 +145,20 @@ void add_pairs(void)
     // TODO
     // iterate over the newly made preferences[][]
     // which has values corresponding to i, j pairs
-    // e.g. 7-2 is a pair; winners and losers are just values you keep incrementing!
     // e.g. (cont) pairs[0].winner = 7; pairs[0].loser = 2
     // classify pairs how?
     // preferences[i][j] is no. of voters who prefer i to j
     pair_count = candidate_count * (candidate_count - 1) / 2;
-    int pair_current = 0;
+    int pair_counter = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 1; j < candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
-            if (preferences[i][j] > 0 && i < j)
+            if (preferences[i][j] > preferences[j][i])
             {
-                pairs[pair_current].winner = preferences[i][j];
-                pairs[pair_current].loser = preferences[j][i];
-                pair_current++;
+                pairs[pair_counter].winner = preferences[i][j];
+                pairs[pair_counter].loser = preferences[j][i];
+                pair_counter++;
             }
         }
     }
@@ -166,9 +171,27 @@ void sort_pairs(void)
     // TODO
     // e.g. AB=7,2;CA=6,3; BC=5,4 the graph is A-->B, then C-->A, but B-->C completes the cycle so now we retrace:
     // and C can be traced. somehow.
-    // pairs looks like [(7,2),(6,3),(5,4)]
+    // pairs currently looks like [(5,4), (7,2), (6,3)]
     // bigger the difference, the better? they all sum up to voter count
-    // sort decreasing though
+    pair tmp;
+    for (int j = 0; j < pair_count; j++)
+    {
+        int swap_count = 0;
+        for (int i = 1; i < pair_count; i++)
+        {
+            if (pairs[i].winner > pairs[i - 1].winner)
+            {
+                tmp = pairs[i];
+                pairs[i] = pairs[i - 1];
+                pairs[i - 1] = tmp;
+                swap_count = 1;
+            }
+        }
+        if (swap_count == 0)
+        {
+            break;
+        }
+    }
     return;
 }
 
@@ -176,6 +199,23 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    // pairs currently looks like [(7,2), (6,3), (5,4)] corresponds with [(0,1), (1,2), (2,0)]
+    for (int i = 0; i < pair_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            for (int k = 0; k < candidate_count; k++)
+            {
+                if (pairs[i].winner == preferences[j][k])
+                {
+                    locked[j][k] = true;
+                    k = j = candidate_count;
+                    continue;
+                }
+            }
+        }
+    }
+    // now we must identify loops.
     return;
 }
 
