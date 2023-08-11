@@ -191,7 +191,7 @@ void lock_pairs(void)
         {
             for (int k = 0; k < candidate_count; k++)
             {
-                if (pairs[i].winner == preferences[j][k])
+                if (pairs[i].winner == j)
                 {
                     locked[j][k] = true;
                     k = j = candidate_count;
