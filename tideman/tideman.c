@@ -177,7 +177,7 @@ void sort_pairs(void)
     }
     return;
 }
-
+bool has_cycle(int current, bool visited[], bool stack[]);
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
@@ -192,6 +192,12 @@ void lock_pairs(void)
     }
 
     return;
+}
+bool has_cycle(int current, bool visited[], bool stack[])
+{
+    visited[current] = true;
+    
+    return false;
 }
 
 // Print the winner of the election
