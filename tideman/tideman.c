@@ -210,7 +210,7 @@ bool has_cycle(int current, bool visited[], bool stack[])
         {
             if (!visited[loser])
             {
-                if (has_cycle[loser, visited, stack])
+                if (has_cycle(loser, visited, stack))
                 {
                     return true;
                 }
