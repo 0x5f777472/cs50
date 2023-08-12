@@ -184,8 +184,9 @@ void lock_pairs(void) {
         if (has_cycle(winner, visited, stack)) {
             locked[winner][loser] = false; // Unlock the pair if it creates a cycle
         }
-
-        visited[winner] = false;
+        else {
+            visited[winner] = false; // Reset visited status if no cycle is present
+        }
     }
 }
 
