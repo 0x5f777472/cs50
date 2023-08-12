@@ -183,6 +183,7 @@ void lock_pairs(void)
 {
     // TODO
     // pairs currently looks like [(0,1), (2,0), (1,2)]
+    bool visited[pair_count] = {false};
     int seen_winners[pair_count];
     for (int i = 0; i < pair_count; i++)
     {
