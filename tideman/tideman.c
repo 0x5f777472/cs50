@@ -179,25 +179,46 @@ void sort_pairs(void)
 }
 bool has_cycle(int current, bool visited[], bool stack[]);
 // Lock pairs into the candidate graph in order, without creating cycles
-void lock_pairs(void)
-{
-    // TODO
-    // pairs currently looks like [(0,1), (2,0), (1,2)]
-    bool visited[pair_count] = {false};
-    int seen_winners[pair_count];
+void lock_pairs(void) {
+    bool visited[MAX] = { false };
+    bool stack[MAX] = { false };
+
     for (int i = 0; i < pair_count; i++)
     {
-        locked[pairs[i].winner][pairs[i].loser] = true;
-        seen_winners[i] = pairs[i].winner;
+        int winner = pairs[i].winner;
+        if (!visited[winner])
+        {
+            if (has_cycle(winner, visited, stack))
+            {
+                locked[pairs[i].winner][pairs[i].loser] = false; // Unlock the pair if it creates a cycle
+            }
+        }
     }
-
-    return;
 }
 bool has_cycle(int current, bool visited[], bool stack[])
 {
     visited[current] = true;
     stack[current] = true;
-    for (int i; )
+    for (int i = 0; i < pair_count; i++)
+    {
+        int winner = pairs[i].winner;
+        int loser = pairs[i].loser;
+        if (winner == current)
+        {
+            if (!visited[loser])
+            {
+                if (has_cycle(loser, visited, stack))
+                {
+                    return true;
+                }
+                else if (stack[loser])
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    stack[current] = false;
     return false;
 }
 
