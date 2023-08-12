@@ -170,22 +170,16 @@ void sort_pairs(void)
     return;
 }
 bool has_cycle(int current, bool visited[], bool stack[]);
+void unlock_pair(int winner, int loser);
+
 void lock_pairs(void) {
     bool visited[MAX] = { false };
     bool stack[MAX] = { false };
 
-    for (int i = 0; i < pair_count; i++) {
-        int winner = pairs[i].winner;
-        int loser = pairs[i].loser;
-
-        locked[winner][loser] = true;
-        visited[winner] = true;
-
-        if (has_cycle(winner, visited, stack)) {
-            locked[winner][loser] = false; // Unlock the pair if it creates a cycle
-        }
-        else {
-            visited[winner] = false; // Reset visited status if no cycle is present
+    // Perform DFS for each candidate
+    for (int i = 0; i < candidate_count; i++) {
+        if (!visited[i] && has_cycle(i, visited, stack)) {
+            unlock_pair(pairs[pair_count-1].winner, pairs[pair_count-1].loser);
         }
     }
 }
@@ -194,16 +188,14 @@ bool has_cycle(int current, bool visited[], bool stack[]) {
     visited[current] = true;
     stack[current] = true;
 
-    for (int i = 0; i < pair_count; i++) {
-        int winner = pairs[i].winner;
-        int loser = pairs[i].loser;
-
-        if (winner == current) {
-            if (!visited[loser]) {
-                if (has_cycle(loser, visited, stack)) {
+    // Iterate through all candidates
+    for (int i = 0; i < candidate_count; i++) {
+        if (locked[current][i]) {
+            if (!visited[i]) {
+                if (has_cycle(i, visited, stack)) {
                     return true;
                 }
-            } else if (stack[loser]) {
+            } else if (stack[i]) {
                 return true;
             }
         }
@@ -211,6 +203,10 @@ bool has_cycle(int current, bool visited[], bool stack[]) {
 
     stack[current] = false;
     return false;
+}
+
+void unlock_pair(int winner, int loser) {
+    locked[winner][loser] = false;
 }
 
 // Print the winner of the election
