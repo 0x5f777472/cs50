@@ -179,29 +179,45 @@ void sort_pairs(void)
 }
 bool has_cycle(int current, bool visited[], bool stack[]);
 
-void lock_pairs(void) {
-    bool visited[MAX] = { false };
-    bool stack[MAX] = { false };
-    for (int i = 0; i < pair_count; i++) {
-        locked[pairs[i].winner][pairs[i].loser] = true;
-        if (!visited[pairs[i].winner && has_cycle(pairs[i].winner, visited, stack) && i == pair_count - 1]) {
-            locked[pairs[i].winner][pairs[i].loser] = false; // Unlock the pair if it creates a cycle
+void lock_pairs(void)
+{
+    bool visited[MAX] = {false};
+    bool stack[MAX] = {false};
+    for (int i = 0; i < pair_count; i++)
+    {
+        int winner = pairs[i].winner;
+        int loser = pairs[i].loser;
+        locked[winner][loser] = true;
+        visited[winner] = true;
+        if (has_cycle(winner, visited, stack))
+        {
+            locked[winner][loser] = false; // Unlock the pair if it creates a cycle
         }
+        visited[winner] = false;
     }
 }
 
-bool has_cycle(int current, bool visited[], bool stack[]) {
+bool has_cycle(int current, bool visited[], bool stack[])
+{
     visited[current] = true;
     stack[current] = true;
 
-    for (int i = 0; i < pair_count; i++) {
-        if (pairs[i].winner == current) {
-            if (!visited[pairs[i].loser]) {
-                if (has_cycle(pairs[i].loser, visited, stack)) {
+    for (int i = 0; i < pair_count; i++)
+    {
+        int winner = pairs[i].winner;
+        int loser = pairs[i].loser;
+        if (winner == current)
+        {
+            if (!visited[loser])
+            {
+                if (has_cycle[loser, visited, stack])
+                {
                     return true;
                 }
-            } else if (stack[pairs[i].loser]) {
-                return true;
+                else if (stack[loser])
+                {
+                    return true;
+                }
             }
         }
     }
