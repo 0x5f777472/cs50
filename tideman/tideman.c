@@ -186,12 +186,11 @@ void lock_pairs(void)
     int seen_winners[pair_count];
     for (int i = 0; i < pair_count; i++)
     {
-        // if pairs.loser in pairs.winner stop!
         for (int j = 0; j < pair_count; j++)
         {
             if (pairs[i].loser == seen_winners[j])
             {
-                i = pair_count;
+                j = i = pair_count;
                 break;
             }
         }
