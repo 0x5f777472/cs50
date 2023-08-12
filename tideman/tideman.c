@@ -222,6 +222,24 @@ bool has_cycle(int current, bool visited[], bool stack[])
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
-    return;
+    // Find the source node (candidate without any incoming edges)
+    for (int i = 0; i < candidate_count; i++)
+    {
+        bool is_source = true;
+
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (locked[j][i])
+            {
+                is_source = false;
+                break;
+            }
+        }
+
+        if (is_source)
+        {
+            printf("%s\n", candidates[i]);
+            return;
+        }
+    }
 }
