@@ -182,7 +182,10 @@ bool has_cycle(int current, bool visited[], bool stack[]);
 void lock_pairs(void) {
     bool visited[MAX] = { false };
     bool stack[MAX] = { false };
-
+    for (int i = 0; i < pair_count; i++)
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
     for (int i = 0; i < pair_count; i++) {
         int winner = pairs[i].winner;
         if (!visited[winner]) {
