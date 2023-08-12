@@ -189,7 +189,7 @@ void lock_pairs(void)
         // if pairs.loser in pairs.winner stop!
         for (int j = 0; j < pair_count; j++)
         {
-            if (pairs[i].loser = seen_winners[j])
+            if (pairs[i].loser == seen_winners[j])
             {
                 i = pair_count;
                 break;
