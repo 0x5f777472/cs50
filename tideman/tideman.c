@@ -208,16 +208,9 @@ bool has_cycle(int current, bool visited[], bool stack[])
         int loser = pairs[i].loser;
         if (winner == current)
         {
-            if (!visited[loser])
+            if (!visited[loser] && (has_cycle(loser, visited, stack) || stack[loser]))
             {
-                if (has_cycle(loser, visited, stack))
-                {
-                    return true;
-                }
-                else if (stack[loser])
-                {
-                    return true;
-                }
+                return true;
             }
         }
     }
