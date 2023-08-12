@@ -196,7 +196,8 @@ void lock_pairs(void)
 bool has_cycle(int current, bool visited[], bool stack[])
 {
     visited[current] = true;
-    
+    stack[current] = true;
+    for (int i; )
     return false;
 }
 
