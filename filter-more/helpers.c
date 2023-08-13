@@ -28,13 +28,19 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             flipped[i][j] = image[i][width - j - 1];
         }
     }
-    memcpy(flipped, image, sizeof(RGBTRIPLE));
+    memcpy(image, flipped, sizeof flipped);
     return;
 }
 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE flipped[height][width];
+    for (int i = 0; i < height; i++)
+    {
+        memcpy(flipped[height - i - 1], image[i], sizeof image[i]);
+    }
+    memcpy(image, flipped, sizeof flipped);
     return;
 }
 
