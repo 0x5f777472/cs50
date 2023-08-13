@@ -169,44 +169,46 @@ void sort_pairs(void)
     }
     return;
 }
-bool has_cycle(int current, bool visited[], bool stack[]);
-void unlock_pair(int winner, int loser);
-
-void lock_pairs(void) {
-    bool visited[MAX] = { false };
-    bool stack[MAX] = { false };
-
-    // Perform DFS for each candidate
-    for (int i = 0; i < candidate_count; i++) {
-        if (!visited[i] && has_cycle(i, visited, stack)) {
-            unlock_pair(pairs[pair_count-1].winner, pairs[pair_count-1].loser);
-        }
-    }
-}
-
-bool has_cycle(int current, bool visited[], bool stack[]) {
-    visited[current] = true;
-    stack[current] = true;
-
-    // Iterate through all candidates
-    for (int i = 0; i < candidate_count; i++) {
-        if (locked[current][i]) {
-            if (!visited[i]) {
-                if (has_cycle(i, visited, stack)) {
-                    return true;
-                }
-            } else if (stack[i]) {
-                return true;
+bool has_cycle(int winner, int loser)
+{
+    while (winner != -1 && winner != loser)
+    {
+        bool found = false;
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[i][winner])
+            {
+                found = true;
+                winner = i;
             }
         }
+        if (!found)
+        {
+            winner = -1;
+        }
     }
-
-    stack[current] = false;
+    if (winner == loser)
+    {
+        return true;
+    }
     return false;
 }
 
-void unlock_pair(int winner, int loser) {
-    locked[winner][loser] = false;
+// Lock pairs into the candidate graph in order, without creating cycles
+void lock_pairs(void)
+{
+    // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (!has_cycle(pairs[i].winner, pairs[i].loser))
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
+        else
+        {
+            locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+    }
 }
 
 // Print the winner of the election
