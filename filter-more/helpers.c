@@ -27,7 +27,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             flipped[i][j] = image[i][width - j - 1];
         }
     }
-    image = flipped;
+    memcpy(image, flipped, sizeof(RGBTRIPLE));
     return;
 }
 
