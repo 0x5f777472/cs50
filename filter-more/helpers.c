@@ -40,13 +40,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            for (int k = -1; k <= 1; k++)
-            {
-                for (int l = -1; l <= 1; l++)
-                {
-
-                }
-            }
+            int avg_red = round(images[i - 1][j - 1]);
+            int avg_green = round();
+            int avg_blue = round();
         }
     }
     return;
