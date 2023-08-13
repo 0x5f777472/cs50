@@ -4,7 +4,7 @@
 
 /**
  * Common Data Types
- *
+ * 
  * The data types in this section are essentially aliases for C/C++
  * primitive data types.
  *
