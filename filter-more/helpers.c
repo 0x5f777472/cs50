@@ -71,6 +71,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    // if...
     RGBTRIPLE copy[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -88,7 +89,21 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             }
             else if (i == 0 && j == 0)
             {
-                blah;
+                Gx.rgbtRed = 2 * image[i][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed;
+                Gx.rgbtGreen = 2 * image[i][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen;
+                Gx.rgbtBlue = 2 * image[i][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue;
+            }
+            else if (i == 0 && j > 0 && j < width - 1)
+            {
+                Gx.rgbtRed = 2 * image[i][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed - (2 * image[i][j - 1].rgbtRed + image[i + 1][j - 1].rgbtRed);
+                Gx.rgbtGreen = 2 * image[i][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen - (2 * image[i][j - 1].rgbtGreen + image[i + 1][j - 1].rgbtGreen);
+                Gx.rgbtBlue = 2 * image[i][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue - (2 * image[i][j - 1].rgbtBlue + image[i + 1][j - 1].rgbtBlue);
+            }
+            else if (i == 0 && j == width - 1)
+            {
+                Gx.rgbtRed = (2 * image[i][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed);
+                Gx.rgbtGreen = (2 * image[i][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen);
+                Gx.rgbtBlue = (2 * image[i][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue);
             }
         }
     }
