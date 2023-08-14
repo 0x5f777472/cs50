@@ -40,28 +40,38 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int avg_red = 0, avg_green = 0, avg_blue = 0;
+            int avg_red = 0, avg_green = 0, avg_blue = 0, pixel_count = 0;
             for (int k = -1; k <= 1; k++)
             {
                 for (int l = -1; l <= 1; l++)
                 {
+                    if (i + k < 0 || i + k > height || j + l < 0 || j + l > width)
+                    {
+                        continue;
+                    }
                     avg_red += image[i + k][j + l].rgbtRed;
                     avg_green += image[i + k][j + l].rgbtGreen;
                     avg_blue += image[i + k][j + l].rgbtBlue;
+                    pixel_count++;
                 }
             }
-            avg_red = round(avg_red / 9);
-            avg_green = round(avg_green / 9);
-            avg_blue = round(avg_blue / 9);
+            avg_red = round((float) avg_red / pixel_count);
+            avg_green = round((float) avg_green / pixel_count);
+            avg_blue = round((float) avg_blue / pixel_count);
             for (int k = -1; k <= 1; k++)
             {
                 for (int l = -1; l <= 1; l++)
                 {
+                    if (i + k < 0 || i + k > height || j + l < 0 || j + l > width)
+                    {
+                        continue;
+                    }
                     image[i + k][j + l].rgbtRed = avg_red;
                     image[i + k][j + l].rgbtGreen = avg_green;
                     image[i + k][j + l].rgbtBlue = avg_blue;
                 }
             }
+
         }
     }
     return;
