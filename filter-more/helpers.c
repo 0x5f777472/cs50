@@ -137,9 +137,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 Gx.rgbtRed = 2 * image[i][j + 1].rgbtRed + image[i - 1][j + 1].rgbtRed;
                 Gx.rgbtGreen = 2 * image[i][j + 1].rgbtGreen + image[i - 1][j + 1].rgbtGreen;
                 Gx.rgbtBlue = 2 * image[i][j + 1].rgbtBlue + image[i - 1][j + 1].rgbtBlue;
-                Gy.rgbtRed = -1 * (2 * image[i + 1][j].rgbtRed + image[i + 1][j - 1].rgbtRed);
-                Gy.rgbtGreen = -1 * (2 * image[i + 1][j].rgbtGreen + image[i + 1][j - 1].rgbtGreen);
-                Gy.rgbtBlue = -1 * (2 * image[i + 1][j].rgbtBlue + image[i + 1][j - 1].rgbtBlue);
+                Gy.rgbtRed = -1 * (2 * image[i - 1][j].rgbtRed + image[i - 1][j + 1].rgbtRed);
+                Gy.rgbtGreen = -1 * (2 * image[i - 1][j].rgbtGreen + image[i - 1][j + 1].rgbtGreen);
+                Gy.rgbtBlue = -1 * (2 * image[i - 1][j].rgbtBlue + image[i - 1][j + 1].rgbtBlue);
             }
             else if (i == height - 1 && j > 0 && j < width - 1)
             {
@@ -155,10 +155,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 Gx.rgbtRed = -1 * (2 * image[i][j - 1].rgbtRed + image[i - 1][j - 1].rgbtRed);
                 Gx.rgbtGreen = -1 * (2 * image[i][j - 1].rgbtGreen + image[i - 1][j - 1].rgbtGreen);
                 Gx.rgbtBlue = -1 * (2 * image[i][j - 1].rgbtBlue + image[i - 1][j - 1].rgbtBlue);
-                Gy.rgbtRed = -1 * (2 * image[i + 1][j].rgbtRed + image[i + 1][j - 1].rgbtRed);
-                Gy.rgbtGreen = -1 * (2 * image[i + 1][j].rgbtGreen + image[i + 1][j - 1].rgbtGreen);
-                Gy.rgbtBlue = -1 * (2 * image[i + 1][j].rgbtBlue + image[i + 1][j - 1].rgbtBlue);
+                Gy.rgbtRed = -1 * (2 * image[i - 1][j].rgbtRed + image[i - 1][j - 1].rgbtRed);
+                Gy.rgbtGreen = -1 * (2 * image[i - 1][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen);
+                Gy.rgbtBlue = -1 * (2 * image[i - 1][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue);
             }
+            Gx.rgbtRed = round(Gx / 9.0);
+            Gx.rgbtGreen = round(Gx / 9.0);
+            Gx.rgbtBlue = round(Gx / 9.0);
+            Gy.rgbtRed = round(Gy / 9.0);
+            Gy.rgbtGreen = round Gy / 9.0);
+            Gy.rgbtBlue = round(Gy / 9.0);
         }
     }
     return;
