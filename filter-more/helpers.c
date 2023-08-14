@@ -36,7 +36,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     // haha now that i think of it 9 if statements might be more efficient but i'm lazy
-    int avg = 0;
     RGBTRIPLE copy[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -72,5 +71,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE copy[height][width];
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            RGBTRIPLE Gx;
+            RGBTRIPLE Gy;
+        }
+    }
     return;
 }
