@@ -36,6 +36,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     int avg = 0;
+    RGBTRIPLE copy[height][width];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -59,11 +60,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             avg_red = round(avg_red / pixel_count);
             avg_green = round(avg_green / pixel_count);
             avg_blue = round(avg_blue / pixel_count);
-            image[i][j].rgbtRed = avg_red;
-            image[i][j].rgbtGreen = avg_green;
-            image[i][j].rgbtBlue = avg_blue;
+            copy[i][j].rgbtRed = avg_red;
+            copy[i][j].rgbtGreen = avg_green;
+            copy[i][j].rgbtBlue = avg_blue;
         }
     }
+    memcpy(image, copy, sizeof image);
     return;
 }
 
