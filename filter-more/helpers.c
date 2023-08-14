@@ -159,12 +159,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 Gy.rgbtGreen = -1 * (2 * image[i - 1][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen);
                 Gy.rgbtBlue = -1 * (2 * image[i - 1][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue);
             }
-            Gx.rgbtRed = round(Gx / 9.0);
-            Gx.rgbtGreen = round(Gx / 9.0);
-            Gx.rgbtBlue = round(Gx / 9.0);
-            Gy.rgbtRed = round(Gy / 9.0);
-            Gy.rgbtGreen = round Gy / 9.0);
-            Gy.rgbtBlue = round(Gy / 9.0);
+            
         }
     }
     return;
