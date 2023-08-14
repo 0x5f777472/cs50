@@ -77,9 +77,19 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             RGBTRIPLE Gx, Gy;
-            Gx.rgbtRed = image[i - 1][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed - (image[i - 1][j - 1].rgbtRed + image[i + 1][j - 1].rgbtRed) + 2(image[i][j + 1].rgbtRed - image[i][j - 1].rgbtRed);
-            Gx.rgbtGreen = image[i - 1][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen - (image[i - 1][j - 1].rgbtGreen + image[i + 1][j - 1].rgbtGreen) + 2(image[i][j + 1].rgbtGreen - image[i][j - 1].rgbtGreen);
-            Gx.rgbtBlue = image[i - 1][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue - (image[i - 1][j - 1].rgbtBlue + image[i + 1][j - 1].rgbtBlue) + 2(image[i][j + 1].rgbtBlue - image[i][j - 1].rgbtBlue);
+            if (i > 0 && i < height - 1 && j > 0 && j < width - 1)
+            {
+                Gx.rgbtRed = image[i - 1][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed - (image[i - 1][j - 1].rgbtRed + image[i + 1][j - 1].rgbtRed) + 2(image[i][j + 1].rgbtRed - image[i][j - 1].rgbtRed);
+                Gx.rgbtGreen = image[i - 1][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen - (image[i - 1][j - 1].rgbtGreen + image[i + 1][j - 1].rgbtGreen) + 2(image[i][j + 1].rgbtGreen - image[i][j - 1].rgbtGreen);
+                Gx.rgbtBlue = image[i - 1][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue - (image[i - 1][j - 1].rgbtBlue + image[i + 1][j - 1].rgbtBlue) + 2(image[i][j + 1].rgbtBlue - image[i][j - 1].rgbtBlue);
+                Gy.rgbtRed = image[i + 1][j - 1].rgbtRed + image[i + 1][j + 1].rgbtRed + 2 * image[i + 1][j].rgbtRed - (image[i - 1][j - 1].rgbtRed + image[i - 1][j + 1].rgbtRed + 2 * image[i - 1][j].rgbtRed);
+                Gy.rgbtGreen = image[i + 1][j - 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen + 2 * image[i + 1][j].rgbtGreen - (image[i - 1][j - 1].rgbtGreen + image[i - 1][j + 1].rgbtGreen + 2 * image[i - 1][j].rgbtGreen);
+                Gy.rgbtBlue = image[i + 1][j - 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue + 2 * image[i + 1][j].rgbtBlue - (image[i - 1][j - 1].rgbtBlue + image[i - 1][j + 1].rgbtBlue + 2 * image[i - 1][j].rgbtBlue);
+            }
+            else if ()
+            {
+                blah;
+            }
         }
     }
     return;
