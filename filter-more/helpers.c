@@ -77,7 +77,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            RGBTRIPLE Gx, Gy;
+            RGBTRIPLE Gx, Gy, Gc;
             if (i > 0 && i < height - 1 && j > 0 && j < width - 1)
             {
                 Gx.rgbtRed = image[i - 1][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed - (image[i - 1][j - 1].rgbtRed + image[i + 1][j - 1].rgbtRed) + 2(image[i][j + 1].rgbtRed - image[i][j - 1].rgbtRed);
@@ -159,8 +159,24 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 Gy.rgbtGreen = -1 * (2 * image[i - 1][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen);
                 Gy.rgbtBlue = -1 * (2 * image[i - 1][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue);
             }
-            
+            if (round(pow(pow(Gx.rgbtRed, 2) + pow(Gy.rgbtRed, 2), 0.5)) > 255)
+            {
+                Gc.rgbtRed = 255;
+            }
+            if (round(pow(pow(Gx.rgbtGreen, 2) + pow(Gy.rgbtGreen, 2), 0.5)) > 255)
+            {
+                Gc.rgbtGreen = 255;
+            }
+            if (round(pow(pow(Gx.rgbtBlue, 2) + pow(Gy.rgbtBlue, 2), 0.5)) > 255)
+            {
+                Gc.rgbtBlue = 255;
+            }
+            Gc.rgbtRed = round(pow(pow(Gx.rgbtRed, 2) + pow(Gy.rgbtRed, 2), 0.5));
+            Gc.rgbtGreen = round(pow(pow(Gx.rgbtGreen, 2) + pow(Gy.rgbtGreen, 2), 0.5));
+            Gc.rgbtBlue = round(pow(pow(Gx.rgbtBlue, 2) + pow(Gy.rgbtBlue, 2), 0.5));
+            copy[i][j] = Gc;
         }
     }
+    memcpy(image, copy, sizeof copy);
     return;
 }
