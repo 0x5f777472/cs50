@@ -56,10 +56,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     pixel_count++;
                 }
             }
-            unsigned int rounding_bias = (pixel_count - 1) / 2;
-            avg_red = (avg_red + rounding_bias) / pixel_count;
-            avg_green = (avg_green + rounding_bias) / pixel_count;
-            avg_blue = (avg_blue + rounding_bias) / pixel_count;
+            avg_red = avg_red / pixel_count;
+            avg_green = avg_green / pixel_count;
+            avg_blue = avg_blue / pixel_count;
             copy[i][j].rgbtRed = avg_red;
             copy[i][j].rgbtGreen = avg_green;
             copy[i][j].rgbtBlue = avg_blue;
