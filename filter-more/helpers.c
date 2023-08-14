@@ -65,7 +65,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtBlue = avg_blue;
         }
     }
-    memcpy(image, copy, sizeof image);
+    memcpy(image, copy, sizeof copy);
     return;
 }
 
