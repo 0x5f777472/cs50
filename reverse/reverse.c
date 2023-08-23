@@ -12,11 +12,14 @@ int main(int argc, char *argv[])
     // Ensure proper usage
     // TODO #1
     char *input = argv[1];
-    if (input[strlen[input]])
     if (argc != 3)
     {
         printf("Usage: ./reverse input.wav output.wav\n");
         return 1;
+    }
+    if (strcmp(input[strlen[input] - 4], ".") != 0 && strcmp(input[strlen[input] - 3], "w") == 0 && strcmp(input[strlen[input] - 2], "a") == 0 && strcmp(input[strlen[input] - 1], "v") == 0)
+    {
+        printf("Input is not a WAV file.")
     }
     // Open input file for reading
     // TODO #2
