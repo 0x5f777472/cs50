@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     WAVHEADER header;
     char buffer[4];
     fread(buffer, 1, 4, input);
+    
     // Use check_format to ensure WAV format
     // TODO #4
 
