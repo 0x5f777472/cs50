@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
     }
     // Open input file for reading
     // TODO #2
-    if (fopen("input.wav", "r") == NULL)
+    if (fopen(argv[1], "r") == NULL)
     {
         return 1;
     }
-    
+
     // Read header
     // TODO #3
 
