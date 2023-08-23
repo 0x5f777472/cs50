@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 #include "wav.h"
 
 int check_format(WAVHEADER header);
@@ -17,9 +17,10 @@ int main(int argc, char *argv[])
         printf("Usage: ./reverse input.wav output.wav\n");
         return 1;
     }
-    if (strcmp(input[strlen[input] - 4], ".") != 0 && strcmp(input[strlen[input] - 3], "w") == 0 && strcmp(input[strlen[input] - 2], "a") == 0 && strcmp(input[strlen[input] - 1], "v") == 0)
+    if (strcmp(input[strlen[input] - 4], ".") != 0 || strcmp(input[strlen[input] - 3], "w") != 0 || strcmp(input[strlen[input] - 2], "a") != 0 || strcmp(input[strlen[input] - 1], "v") != 0)
     {
-        printf("Input is not a WAV file.")
+        printf("Input is not a WAV file.");
+        return 1;
     }
     // Open input file for reading
     // TODO #2
