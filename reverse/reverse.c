@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./reverse input.wav output.wav\n");
         return 1;
     }
-    if (argv[1][strlen(argv[1]) - 4] != '.' || input[strlen(argv[1]) - 3] != 'w' || input[strlen(argv[1]) - 2] != 'a' || input[strlen(argv[1]) - 1] != 'v')
+    if (argv[1][strlen(argv[1]) - 4] != '.' || argv[1][strlen(argv[1]) - 3] != 'w' || argv[1][strlen(argv[1]) - 2] != 'a' || argv[1][strlen(argv[1]) - 1] != 'v')
     {
         printf("Input is not a WAV file.\n");
         return 1;
@@ -25,8 +25,10 @@ int main(int argc, char *argv[])
     // TODO #2
     if (fopen(argv[1], "r") == NULL)
     {
+        printf("File could not be opened.\n");
         return 1;
     }
+    FILE *input = fopen(argv[1], "r");
 
     // Read header
     // TODO #3
