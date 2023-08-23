@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
         printf("Usage: ./reverse input.wav output.wav\n");
         return 1;
     }
-    if (strcmp(input[strlen[input] - 4], ".") != 0 || strcmp(input[strlen[input] - 3], "w") != 0 || strcmp(input[strlen[input] - 2], "a") != 0 || strcmp(input[strlen[input] - 1], "v") != 0)
+    if (input[strlen(input) - 4] != '.' || input[strlen(input) - 3] != 'w' || input[strlen(input) - 2] != 'a' || input[strlen(input) - 1] != 'v')
     {
-        printf("Input is not a WAV file.");
+        printf("Input is not a WAV file.\n");
         return 1;
     }
     // Open input file for reading
