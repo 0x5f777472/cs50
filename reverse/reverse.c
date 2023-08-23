@@ -11,20 +11,19 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
-    char *input = argv[1];
     if (argc != 3)
     {
         printf("Usage: ./reverse input.wav output.wav\n");
         return 1;
     }
-    if (input[strlen(input) - 4] != '.' || input[strlen(input) - 3] != 'w' || input[strlen(input) - 2] != 'a' || input[strlen(input) - 1] != 'v')
+    if (argv[1][strlen(argv[1]) - 4] != '.' || input[strlen(argv[1]) - 3] != 'w' || input[strlen(argv[1]) - 2] != 'a' || input[strlen(argv[1]) - 1] != 'v')
     {
         printf("Input is not a WAV file.\n");
         return 1;
     }
     // Open input file for reading
     // TODO #2
-    if (fopen(input, "r") == NULL)
+    if (fopen(argv[1], "r") == NULL)
     {
         return 1;
     }
