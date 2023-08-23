@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header;
     char buffer[4];
-    fread()
+    fread(buffer, 1, 4, input);
     // Use check_format to ensure WAV format
     // TODO #4
 
