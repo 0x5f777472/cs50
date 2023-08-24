@@ -33,9 +33,13 @@ int main(int argc, char *argv[])
     // Read header
     // TODO #3
     WAVHEADER header;
+    WAVHEADER *address = &header;
     char buffer[44];
     fread(&buffer, 1, 44, input);
-    printf("%p\n", &header);
+    for (int i = 0; i < 44; i ++)
+    {
+        *(address + i) = buffer[i];
+    }
 
 
     // Use check_format to ensure WAV format
