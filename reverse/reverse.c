@@ -34,9 +34,9 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header;
     WAVHEADER *address = &header;
-    char buffer[44];
-    fread(&buffer, 1, 44, input);
-    for (int i = 0; i < 44; i ++)
+    char buffer[sizeof(WAVHEADER)];
+    fread(&buffer, 1, sizeof(WAVHEADER), input);
+    for (int i = 0; i < sizeof(WAVHEADER); i ++)
     {
         memcpy(address + i, buffer + i, sizeof(char));
     }
