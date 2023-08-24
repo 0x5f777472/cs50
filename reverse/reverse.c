@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
         fclose(input);
         return 1;
     }
-    for (int i = 0; i < sizeof header; i++)
-    {
-        printf("%d: %c or 0x%0x\n", i , *(header.chunkID + i), *(header.chunkID + i));
-    }
+    // for (int i = 0; i < sizeof header; i++)
+    // {
+    //     printf("%d: %c or 0x%0x\n", i , *(header.chunkID + i), *(header.chunkID + i));
+    // }
     // Open output file for writing
     // TODO #5
     FILE *output = fopen(argv[2], "a");
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(header);
     // Write reversed audio to file
     // TODO #8
-    
+
     fclose(input);
     fclose(output);
     return 0;
