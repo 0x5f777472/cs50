@@ -48,12 +48,12 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+    fclose(input);
 }
 
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    
     return 0;
 }
 
