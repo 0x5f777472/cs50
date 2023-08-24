@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
     {
         printf("%d: %c or %d\n", i, buffer[i], buffer[i]);
     }
+    header.chunkID
 
     // Use check_format to ensure WAV format
     // TODO #4
