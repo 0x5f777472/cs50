@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     fread(&buffer, 1, 44, input);
     for (int i = 0; i < 44; i ++)
     {
-        *(address + i) = buffer[i];
+        memcpy(*(address + i), buffer[i], sizeof(char));
     }
 
 
