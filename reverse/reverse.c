@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     }
     for (int i = 0; i < sizeof header; i++)
     {
-        printf("%d: %c or %04x\n", i , *(header.chunkID + i), *(header.chunkID + i));
+        printf("%d: %c or 0x%0x\n", i , *(header.chunkID + i), *(header.chunkID + i));
     }
     // Open output file for writing
     // TODO #5
