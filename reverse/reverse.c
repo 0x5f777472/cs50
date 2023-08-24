@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "wav.h"
 
 int check_format(WAVHEADER header);
@@ -14,11 +15,6 @@ int main(int argc, char *argv[])
     if (argc != 3)
     {
         printf("Usage: ./reverse input.wav output.wav\n");
-        return 1;
-    }
-    if (argv[1][strlen(argv[1]) - 4] != '.' || argv[1][strlen(argv[1]) - 3] != 'w' || argv[1][strlen(argv[1]) - 2] != 'a' || argv[1][strlen(argv[1]) - 1] != 'v')
-    {
-        printf("Input is not a WAV file.\n");
         return 1;
     }
     // Open input file for reading
@@ -36,7 +32,10 @@ int main(int argc, char *argv[])
     fread(&header, 1, sizeof(WAVHEADER), input);
     // Use check_format to ensure WAV format
     // TODO #4
-    check_format(header);
+    if (!check_format(header))
+    {
+        printf("Input is not a WAV file.\n");
+    }
     // Open output file for writing
     // TODO #5
 
@@ -54,11 +53,11 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (header.format[0] != 'W' || header.format[1] != 'A' || header.format[2] != 'V' || header.format[3] != 'E')
+    if (header.format[0] == 'W' && header.format[1] == 'A' && header.format[2] == 'V' && header.format[3] == 'E')
     {
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }
 
 int get_block_size(WAVHEADER header)
