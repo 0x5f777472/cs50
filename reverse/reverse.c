@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     WAVHEADER header;
     char buffer[44];
     fread(&buffer, 1, 44, input);
-    printf("%d", &header);
+    printf("%p\n", &header);
 
 
     // Use check_format to ensure WAV format
