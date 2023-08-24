@@ -33,14 +33,10 @@ int main(int argc, char *argv[])
     // Read header
     // TODO #3
     WAVHEADER header;
-    // fread(&buffer, 1, sizeof(WAVHEADER), input);
-    // char buffer[sizeof(WAVHEADER)];
-    // fread(&buffer, 1, sizeof(WAVHEADER), input);
-    // memcpy(&header, buffer, sizeof(WAVHEADER));
-    printf("%d\n", header.numChannels);
+    fread(&header, 1, sizeof(WAVHEADER), input);
     // Use check_format to ensure WAV format
     // TODO #4
-
+    check_format(header);
     // Open output file for writing
     // TODO #5
 
@@ -57,6 +53,7 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
+    
     return 0;
 }
 
