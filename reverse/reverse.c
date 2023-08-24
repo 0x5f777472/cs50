@@ -33,15 +33,11 @@ int main(int argc, char *argv[])
     // Read header
     // TODO #3
     WAVHEADER header;
-    WAVHEADER *address = &header;
-    char buffer[sizeof(WAVHEADER)];
     fread(&buffer, 1, sizeof(WAVHEADER), input);
-    for (int i = 0; i < sizeof(WAVHEADER); i ++)
-    {
-        memcpy(address + i, buffer + i, sizeof(char));
-    }
-
-
+    // char buffer[sizeof(WAVHEADER)];
+    // fread(&buffer, 1, sizeof(WAVHEADER), input);
+    // memcpy(&header, buffer, sizeof(WAVHEADER));
+    printf("%d\n", header.numChannels);
     // Use check_format to ensure WAV format
     // TODO #4
 
