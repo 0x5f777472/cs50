@@ -39,10 +39,6 @@ int main(int argc, char *argv[])
         fclose(input);
         return 1;
     }
-    // for (int i = 0; i < sizeof header; i++)
-    // {
-    //     printf("%d: %c or 0x%0x\n", i , *(header.chunkID + i), *(header.chunkID + i));
-    // }
     // Open output file for writing
     // TODO #5
     FILE *output = fopen(argv[2], "a");
