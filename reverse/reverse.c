@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     fread(&buffer, 1, 44, input);
     for (int i = 0; i < 44; i++)
     {
-        printf("%d: %d\n", i, buffer[i]);
+        printf("%d: %c or %d\n", i, buffer[i], buffer[i]);
     }
 
     // Use check_format to ensure WAV format
