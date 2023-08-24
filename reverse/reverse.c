@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     }
     // Open output file for writing
     // TODO #5
-    FILE *output = fopen(argv[2], "w");
+    FILE *output = fopen(argv[2], "a");
     if (output == NULL)
     {
         printf("File could not be opened.\n");
