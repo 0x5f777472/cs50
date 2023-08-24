@@ -1,9 +1,9 @@
+#include "wav.h"
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include "wav.h"
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     if (output == NULL)
     {
         printf("File could not be opened.\n");
+        fclose(input);
         fclose(output);
         return 1;
     }
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // TODO #8
     fclose(input);
+    fclose(output);
 }
 
 int check_format(WAVHEADER header)
