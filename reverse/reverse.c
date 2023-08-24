@@ -35,11 +35,8 @@ int main(int argc, char *argv[])
     WAVHEADER header;
     char buffer[44];
     fread(&buffer, 1, 44, input);
-    for (int i = 0; i < 44; i++)
-    {
-        printf("%d: %c or %d\n", i, buffer[i], buffer[i]);
-    }
-    
+    printf("%d", &header);
+
 
     // Use check_format to ensure WAV format
     // TODO #4
