@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     // Read header
     // TODO #3
     WAVHEADER header;
-    fread(&buffer, 1, sizeof(WAVHEADER), input);
+    // fread(&buffer, 1, sizeof(WAVHEADER), input);
     // char buffer[sizeof(WAVHEADER)];
     // fread(&buffer, 1, sizeof(WAVHEADER), input);
     // memcpy(&header, buffer, sizeof(WAVHEADER));
