@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     }
     // Open output file for writing
     // TODO #5
-    FILE *output = fopen(argv[2], "a");
+    FILE *output = fopen(argv[2], "w");
     if (output == NULL)
     {
         printf("File could not be opened.\n");
@@ -57,7 +57,14 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(header);
     // Write reversed audio to file
     // TODO #8
-
+    fseek(input, 0L, SEEK_END);
+    int sz = ftell(input);
+    for (long int i = block_size - 1; i < (sz - sizeof(WAVHEADER)); i+=block_size)
+    {
+        fseek(input, -i, SEEK_END);
+        fseek(output, i, SEEK_CUR);
+        fread(output, 1, block_size, input);
+    }
     fclose(input);
     fclose(output);
     return 0;
