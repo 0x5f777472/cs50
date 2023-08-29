@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
         char temp[block_size];
         fseek(input, -i, SEEK_END);
         fread(temp, 1, block_size, input);
-        fseek(output, 0, SEEK_END);
+        fseek(output, 0L, SEEK_END);
     }
     fclose(input);
     fclose(output);
