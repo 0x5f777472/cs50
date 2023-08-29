@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     fseek(input, 0L, SEEK_END);
     int sz = ftell(input);
     int num_samples = (sz - sizeof(WAVHEADER)) / block_size;
-    for (long int i = block_size; i < (sz - sizeof(WAVHEADER)); i += 2 * block_size)
+    for (long int i = block_size; i < (sz - sizeof(WAVHEADER)); i += block_size)
     {
         char buffer[block_size];
         fseek(input, -i, SEEK_END);
