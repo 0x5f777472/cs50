@@ -60,11 +60,11 @@ int main(int argc, char *argv[])
     int num_samples = (sz - sizeof(WAVHEADER)) / block_size;
     for (long int i = block_size; i < (sz - sizeof(WAVHEADER)); i += 2 * block_size)
     {
-        char temp[block_size];
+        char buffer[block_size];
         fseek(input, -i, SEEK_END);
-        fread(temp, 1, block_size, input);
+        fread(buffer, 1, block_size, input);
         fseek(output, 0L, SEEK_END);
-        fwrite();
+        fwrite(buffer, 1, block_size, output);
     }
     fclose(input);
     fclose(output);
