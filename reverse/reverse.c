@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
     if (input == NULL)
     {
         printf("File could not be opened.\n");
-        fclose(input);
         return 1;
     }
 
@@ -46,7 +45,6 @@ int main(int argc, char *argv[])
     {
         printf("File could not be opened.\n");
         fclose(input);
-        fclose(output);
         return 1;
     }
     // Write header to file
@@ -59,11 +57,12 @@ int main(int argc, char *argv[])
     // TODO #8
     fseek(input, 0L, SEEK_END);
     int sz = ftell(input);
-    for (long int i = block_size - 1; i < (sz - sizeof(WAVHEADER)); i+=block_size)
+    int num_samples = (sz - sizeof(WAVHEADER)) / block_size;
+    for (long int i = block_size - 1; i < (sz - sizeof(WAVHEADER)); i += block_size)
     {
         fseek(input, -i, SEEK_END);
-        fseek(output, i, SEEK_CUR);
         fread(output, 1, block_size, input);
+        fseek(output, i, SEEK_CUR);
     }
     fclose(input);
     fclose(output);
