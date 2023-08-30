@@ -41,7 +41,7 @@ def luhn(number):
         stupid = 2 * nth(number, i)
         for j in range(count(stupid)):
             sum += nth(stupid, j)
-    for i in range(count(number), 2):
+    for i in range(0, count(number), 2):
         sum += nth(number, i)
     return sum
 
