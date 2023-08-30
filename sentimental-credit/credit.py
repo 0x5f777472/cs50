@@ -9,13 +9,7 @@ def main():
                 if length == 15 and (intial == 34 or initial == 37):
                     print("AMEX")
                     break
-                elif length == 16 and (
-                    initial == 51
-                    or initial == 52
-                    or initial == 53
-                    or initial == 54
-                    or initial == 55
-                ):
+                elif length == 16 and (initial == 51 or initial == 52 or initial == 53 or initial == 54 or initial == 55):
                     print("MASTERCARD")
                     break
                 elif (initial // 10 == 4) and (length == 13 or length == 16):
