@@ -10,9 +10,7 @@ int count_sentences(char *text);
 int main(void)
 {
     // uhh
-    char input[2048];
-    printf("Text: ");
-    fgets(input, sizeof(input), stdin);
+    string input = get_string("Text: ");
     float W = count_words(input);
     float L = 100 * count_letters(input) / W;
     float S = 100 * count_sentences(input) / W;
