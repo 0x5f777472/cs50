@@ -6,6 +6,7 @@ def main():
             length = count(number)
             initial = number // (10 ** (length - 2))
             if luhn(number) % 10 == 0:
+                print("LUNH")
                 if length == 15 and (intial == 34 or initial == 37):
                     print("AMEX")
                     break
