@@ -25,7 +25,7 @@ def main():
         for subsequence in headers:
             if reader[i][subsequence] != longest_match(sequence, subsequence):
                 break
-            matches[i] += 1
+            matches[subsequence] += 1
     print(matches)
     # TODO: Check database for matching profiles
 
