@@ -34,6 +34,7 @@ def main():
 def nth(number, n):
     return (number // (10**n)) % 10
 
+
 def luhn(number):
     sum = 0
     for i in range(1, count(number)):
