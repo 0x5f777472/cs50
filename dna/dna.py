@@ -18,12 +18,13 @@ def main():
         sequence = seq.read().rstrip()
     # TODO: Find longest match of each STR in DNA sequence
     # TODO: Check database for matching profiles
+    matches = 0
     for person in reader:
         for subsequence in headers:
-            if person[subsequence] != str(longest_match(sequence, subsequence)):
-                break
-            match = person
-            
+            if person[subsequence] == str(longest_match(sequence, subsequence)):
+                matches += 1
+            if matches == len(headers):
+                print(person['name'])
     return
 
 
