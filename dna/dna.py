@@ -26,8 +26,7 @@ def main():
         if matches == len(headers):
             print(person['name'])
             break
-    print(matches)
-    if not matches:
+    if matches != len(headers):
         print("No match")
     return
 
