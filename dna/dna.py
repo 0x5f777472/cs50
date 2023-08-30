@@ -13,8 +13,6 @@ def main():
         headers = reader.fieldnames
         reader = list(reader)
         headers.pop(0)
-    print(headers)
-    print(reader)
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as seq:
         sequence = seq.read().rstrip()
@@ -25,7 +23,6 @@ def main():
             if person[subsequence] != str(longest_match(sequence, subsequence)):
                 break
             matches.append(str(longest_match(sequence, subsequence)))
-    print(matches)
     # TODO: Check database for matching profiles
 
     return
