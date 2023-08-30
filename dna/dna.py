@@ -9,7 +9,8 @@ def main():
         print("Usage: python dna.py data.csv sequence.txt")
         return
     # TODO: Read database file into a variable
-    with open(argv[1], "r") as db
+    with open(argv[1], "r") as db:
+        
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
