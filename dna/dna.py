@@ -24,7 +24,7 @@ def main():
         for subsequence in headers:
             if person[subsequence] != str(longest_match(sequence, subsequence)):
                 break
-            matches[subsequence] += 1
+            matches[subsequence] += str(longest_match(sequence, subsequence))
     print(matches)
     # TODO: Check database for matching profiles
 
