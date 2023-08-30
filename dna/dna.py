@@ -24,7 +24,7 @@ def main():
                 break
             matches.append(str(longest_match(sequence, subsequence)))
     # TODO: Check database for matching profiles
-
+    
     return
 
 
