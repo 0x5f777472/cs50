@@ -1,6 +1,7 @@
 # TODO
 def main():
-    pass
+    text = input("Text: ")
+    
 
 
 if __name__ == "__main__":
