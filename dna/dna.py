@@ -22,8 +22,8 @@ def main():
         print(sequence)
     # TODO: Find longest match of each STR in DNA sequence
     for subsequence in headers:
-        print(longest_match(sequence, subsequence))
-        for i in range()
+        for i in range(len(reader)):
+            if reader[i][sequence] == longest_match(sequence, subsequence)
     # TODO: Check database for matching profiles
 
     return
