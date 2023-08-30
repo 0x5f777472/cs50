@@ -20,9 +20,9 @@ def main():
         sequence = seq.read().rstrip()
     # TODO: Find longest match of each STR in DNA sequence
     matches = [0] * len(headers)
-    for i in range(len(reader)):
+    for i, person in enumerate(reader):
         for subsequence in headers:
-            if reader[i][subsequence] != longest_match(sequence, subsequence):
+            if person[subsequence] != str(longest_match(sequence, subsequence)):
                 break
             matches[subsequence] += 1
     print(matches)
