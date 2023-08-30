@@ -9,8 +9,9 @@ def main():
         print("Grade 16+")
     elif index < 1:
         print("Before Grade 1")
-    else
+    else:
         print(f"Grade {index}")
+
 
 def count_letters(text):
     count = 0
@@ -19,14 +20,21 @@ def count_letters(text):
             count += 1
     return count
 
+
 def count_words(text):
     count = 0
     for letter in text:
-        if letter.isspace()
+        if letter.isspace():
             count += 1
     return count
 
+
 def count_sentences(text):
-    pass
+    count = 0
+    for letter in text:
+        if letter == "." or letter == "!" or letter == "?":
+            count += 1
+
+
 if __name__ == "__main__":
     main()
