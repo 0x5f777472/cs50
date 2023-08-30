@@ -34,6 +34,7 @@ def count_sentences(text):
     for letter in text:
         if letter == "." or letter == "!" or letter == "?":
             count += 1
+    return count
 
 
 if __name__ == "__main__":
