@@ -19,16 +19,15 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     # TODO: Check database for matching profiles
     matches = 0
-    match_found = False
     for person in reader:
         for subsequence in headers:
             if person[subsequence] == str(longest_match(sequence, subsequence)):
                 matches += 1
         if matches == len(headers):
             print(person['name'])
-            match_found = True
             break
-    if not match_found:
+    print(matches)
+    if matches:
         print("No match")
     return
 
