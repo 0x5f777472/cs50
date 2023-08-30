@@ -13,7 +13,7 @@ def main():
         reader = csv.DictReader(db)
         headers = reader.fieldnames
         for row in reader:
-            print(row['name'])
+            print(row[])
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as seq:
         sequence = seq.read()
