@@ -22,7 +22,7 @@ def main():
         print(sequence)
     # TODO: Find longest match of each STR in DNA sequence
     for subsequence in headers:
-        longest_match(sequence, subsequence)
+        print(longest_match(sequence, subsequence))
     # TODO: Check database for matching profiles
 
     return
