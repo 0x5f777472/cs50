@@ -7,9 +7,9 @@ def main():
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("Usage: python dna.py data.csv sequence.txt")
-        sys.exit(1)
+        return
     # TODO: Read database file into a variable
-
+    with open(argv[1], "r") as db
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
