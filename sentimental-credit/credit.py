@@ -18,6 +18,9 @@ def main():
                 else:
                     print("INVALID")
                     break
+            else:
+                print("INVALID")
+                break
         except:
             continue
 
