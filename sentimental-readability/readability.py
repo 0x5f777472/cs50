@@ -22,7 +22,7 @@ def count_letters(text):
 
 
 def count_words(text):
-    count = 0
+    count = 1
     for letter in text:
         if letter.isspace():
             count += 1
