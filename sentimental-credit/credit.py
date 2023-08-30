@@ -9,7 +9,13 @@ def main():
                 if length == 15 and (intial == 34 or initial == 37):
                     print("AMEX")
                     break
-                elif length == 16 and (initial == 51 or initial == 52 or initial == 53 or initial == 54 or initial == 55):
+                elif length == 16 and (
+                    initial == 51
+                    or initial == 52
+                    or initial == 53
+                    or initial == 54
+                    or initial == 55
+                ):
                     print("MASTERCARD")
                     break
                 elif (initial // 10 == 4) and (length == 13 or length == 16):
@@ -24,8 +30,10 @@ def main():
         except:
             continue
 
+
 def nth(number, n):
-    return (number // (10 ** n)) % 10
+    return (number // (10**n)) % 10
+
 
 def luhn(number):
     sum = 0
@@ -40,8 +48,10 @@ def luhn(number):
         i += 2
     return sum
 
+
 def count(number):
     return len(str(number))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
