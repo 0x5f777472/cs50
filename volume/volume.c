@@ -34,7 +34,9 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // TODO: Copy header from input file to output file
-    fwrite(input, 1, sizeof(WAVHEADER), output);
+    char * header;
+    fread(&header, 1, HEADER_SIZE, input);
+    fread(&header, 1, HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
 
