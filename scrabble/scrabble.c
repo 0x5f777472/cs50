@@ -42,7 +42,7 @@ int compute_score(string word)
         if (isalpha(word[i]))
         {
             word[i] = tolower(word[i]);
-            
+            total += POINTS[word[i] - 97];
         }
     }
 
