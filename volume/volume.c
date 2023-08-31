@@ -43,8 +43,6 @@ int main(int argc, char *argv[])
     fseek(input, (long)HEADER_SIZE, SEEK_SET);
     fseek(output, (long)HEADER_SIZE, SEEK_SET);
     int16_t buffer;
-    puts(ftell(input));
-    puts("", ftell(output));
     for (long int i = 0; i < sz - HEADER_SIZE; i+=2)
     {
         buffer = 0;
