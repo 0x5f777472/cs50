@@ -34,11 +34,23 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // TODO: Copy header from input file to output file
-    char header[HEADER_SIZE];
+    uint8_t header[HEADER_SIZE];
     fread(&header, 1, HEADER_SIZE, input);
     fwrite(&header, 1, HEADER_SIZE, output);
     // TODO: Read samples from input file and write updated data to output file
-    
+    fseek(input, 0L, SEEK_END);
+    int sz = ftell(input);
+    fseek(input, (long)HEADER_SIZE, SEEK_SET);
+    fseek(output, (long)HEADER_SIZE, SEEK_SET);
+    for (long int i = 1; i < sz - HEADER_SIZE; i+=2)
+    {
+        int16_t buffer;
+        fread(&buffer, 2, 1, input);
+        buffer *= factor;
+        fseek(output, 2L, SEEK_CUR);
+        fwrite(&buffer, 2, 1, output);
+
+    }
     // Close files
     fclose(input);
     fclose(output);
