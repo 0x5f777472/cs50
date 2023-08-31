@@ -10,4 +10,6 @@ SELECT hour, minute, activity, license_plate FROM bakery_security_logs WHERE mon
 --get flights the car owner ahve been on
 SELECT flight_id FROM passengers WHERE passport_number IN (SELECT passport_number FROM people WHERE license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE month = 7 AND day = 28 AND hour = 10 AND activity = 'exit'));
 SELECT id FROM flights WHERE origin_airport_id = 8 AND month = 7 AND day = 29;
--- either flight 18 or 36
+-- either flight 18 or 36.
+-- get phone calls from people to people
+SELECT passport_number FROM people WHERE phone_number = (SELECT caller FROM phone_calls WHERE month = 7 AND day = 28 AND duration < 60);
