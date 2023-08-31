@@ -35,10 +35,15 @@ int main(void)
 
 int compute_score(string word)
 {
+    int total = 0;
     // TODO: Compute and return score for string
     for (int i = 0; i < strlen(word); i++)
     {
-        word[i]
+        if (isalpha(word[i]))
+        {
+            word[i] = tolower(word[i]);
+            
+        }
     }
 
 }
