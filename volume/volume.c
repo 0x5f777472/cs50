@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
     // TODO: Read samples from input file and write updated data to output file
     fseek(input, 0L, SEEK_END);
     int sz = ftell(input);
-    printf("%d\n", sz);
     fseek(input, (long)HEADER_SIZE, SEEK_SET);
     fseek(output, (long)HEADER_SIZE, SEEK_SET);
     int16_t buffer;
