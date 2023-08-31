@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     fseek(output, (long)HEADER_SIZE, SEEK_SET);
     for (long int i = 1; i < sz - HEADER_SIZE; i+=2)
     {
-        int16_t buffer;
+        int16_t buffer = 0;
         fread(&buffer, 2, 1, input);
         buffer *= factor;
         fseek(output, 2L, SEEK_CUR);
