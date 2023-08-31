@@ -4,9 +4,7 @@
 SELECT description FROM crime_scene_reports WHERE month = 7 AND day = 28 AND street = 'Humphrey Street';
 -- bakery logs:
 SELECT hour, minute, activity, license_plate FROM bakery_security_logs WHERE month = 7 AND day = 28 AND (hour = 10 OR hour = 9);
---flight logs:
-SELECT hour, minute, full_name AS destination, flights.id AS flight_id FROM flights JOIN airports ON flights.destination_airport_id = airports.id WHERE month = 7 AND day = 28 AND hour >= 10 AND destination != 'Fiftyville Regional Airport' ORDER BY hour, minute;
---passengers. note that accomplice has car:
-SELECT name, license_plate FROM people WHERE passport_number IN (SELECT passport_number FROM passengers WHERE flight_id = 6 or 35 or 34 or 1 or 17);
---interviews!
+
 SELECT * FROM interviews WHERE month = 7 AND day = 28;
+-- before 10:15 am, leggett street, withdrawing. 10 minutes within the theft drive away. call for less than 1 minute, earliest flight tomorrow, accomplice buys ticket.
+
