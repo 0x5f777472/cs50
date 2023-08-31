@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
         buffer = 0;
         fread(&buffer, 2, 1, input);
         buffer *= factor;
-        fseek(output, 2L, SEEK_CUR);
         fwrite(&buffer, 2, 1, output);
     }
     // Close files
