@@ -22,7 +22,9 @@ def main():
         team['rating'] = int(team['rating'])
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    for i in range(N)
+    for i in range(N):
+        simulate_round(teams)
+        counts[]
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
