@@ -18,6 +18,8 @@ def main():
     # TODO: Read teams into memory from file
     with open(sys.argv[1], "r") as db:
         teams = list(csv.DictReader(db))
+    for i, team in enumerate(teams):
+        teams[i]['rating'] = int(team['rating'])
     print(simulate_round(teams))
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
