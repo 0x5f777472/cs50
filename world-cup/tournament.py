@@ -20,10 +20,9 @@ def main():
         teams = list(csv.DictReader(db))
     for team in teams:
         team['rating'] = int(team['rating'])
-    print(simulate_round(teams))
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-
+    for i in range(N)
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
