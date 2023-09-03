@@ -9,7 +9,6 @@ N = 1000
 
 
 def main():
-
     # Ensure correct usage
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
@@ -19,12 +18,13 @@ def main():
     with open(sys.argv[1], "r") as db:
         teams = list(csv.DictReader(db))
     for team in teams:
-        team['rating'] = int(team['rating'])
+        team["rating"] = int(team["rating"])
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
     for i in range(N):
-        simulate_round(teams)
-        counts[]
+        for blah in simulate_round(teams):
+            blah["team"]
+
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
