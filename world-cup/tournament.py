@@ -25,8 +25,8 @@ def main():
         for winner in simulate_round(teams):
             if winner["team"] in counts:
                 counts[winner["team"]] += 1
-                
-
+            else:
+                counts[winner["team"]] = 1
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
