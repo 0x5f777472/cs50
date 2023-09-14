@@ -43,17 +43,16 @@ bool check(const char *word)
 
 // Hashes word to a number
 // http://www.cse.yorku.ca/~oz/hash.html
-unsigned int hash(const char *word)
-{
-    unsigned int hash = 5381;
-    int c;
+unsigned int hash(const char* word)
+ {
+     unsigned long hash = 5381;
 
-    while (c = *word++)
-    {
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-    }
-    return hash;
-}
+     for (const char* ptr = word; *ptr != '\0'; ptr++)
+     {
+         hash = ((hash << 5) + hash) + tolower(*ptr);
+     }
+     return hash % N;
+ }
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
