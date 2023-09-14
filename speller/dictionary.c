@@ -78,7 +78,6 @@ bool load(const char *dictionary)
         n->next = table[hashed];
         table[hashed] = n;
         load_count++;
-        return true;
     }
     fclose(dict_ptr);
     return true;
