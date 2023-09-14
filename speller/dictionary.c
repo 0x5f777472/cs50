@@ -48,7 +48,7 @@ unsigned int hash(const char *word)
     unsigned int hash = 5381;
     int c;
 
-    while ((c = *word++))
+    while (c = *word++)
     {
         hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
     }
