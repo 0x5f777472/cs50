@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <strings.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -93,5 +94,19 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    for (int i = 0; i < N; i++)
+    {
+        node * n = table[i];
+        while (n)
+        {
+            node * cur = n;
+            free(cur);
+            n = n->next;
+        }
+        if ()
+        {
+            return true;
+        }
+    }
     return false;
 }
