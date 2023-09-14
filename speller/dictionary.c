@@ -42,15 +42,16 @@ bool check(const char *word)
 }
 
 // Hashes word to a number
-unsigned int hash(const char *word)
+// http://www.cse.yorku.ca/~oz/hash.html
+unsigned int hash(unsigned char *str)
 {
-    // TODO: Improve this hash function
-    long blah = 1;
-    for (int i = 0; i < strlen(word); i++)
-    {
-        blah *= word[i];
-    }
-    return (blah) % N;
+    unsigned long hash = 5381;
+    int c;
+
+    while (c = *str++)
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
