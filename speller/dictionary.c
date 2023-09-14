@@ -46,6 +46,12 @@ bool load(const char *dictionary)
     char buffer[LENGTH];
     while (fscanf(dict_ptr, "%s", buffer) != EOF)
     {
+        node * n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            printf("Could not allocate memory for node pointer n");
+            return false;
+        }
         return true;
     }
     return true;
