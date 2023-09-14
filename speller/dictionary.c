@@ -47,7 +47,7 @@ unsigned int hash(const char* word)
  {
      unsigned long hash = 5381;
 
-     for (; *word != '\0'; word++)
+     while (*word++ != '\0')
      {
          hash = ((hash << 5) + hash) + tolower(*word);
      }
