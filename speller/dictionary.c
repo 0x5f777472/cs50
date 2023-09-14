@@ -43,14 +43,15 @@ bool check(const char *word)
 
 // Hashes word to a number
 // http://www.cse.yorku.ca/~oz/hash.html
-unsigned int hash(unsigned char *str)
+unsigned int hash(const char *word)
 {
-    unsigned long hash = 5381;
+    unsigned int hash = 5381;
     int c;
 
-    while (c = *str++)
+    while ((c = *word++))
+    {
         hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-
+    }
     return hash;
 }
 
