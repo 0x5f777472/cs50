@@ -43,7 +43,7 @@ bool load(const char *dictionary)
         printf("Failed to load dictionary.");
         return false;
     }
-    char buffer 
+    char buffer[LENGTH];
     while (fscanf(dict_ptr, "%s", ))
     {
         return true;
