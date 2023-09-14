@@ -1,20 +1,19 @@
 // Implements a dictionary's functionality
 
+#include "dictionary.h"
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <strings.h>
-#include "dictionary.h"
 
 // Represents a node in a hash table
 typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 75000;
@@ -29,7 +28,7 @@ bool check(const char *word)
 {
     // TODO
     int hashed = hash(word);
-    node * n = table[hashed];
+    node *n = table[hashed];
     while (n)
     {
         if (strcasecmp(word, n->word) == 0)
@@ -43,22 +42,22 @@ bool check(const char *word)
 
 // Hashes word to a number
 // http://www.cse.yorku.ca/~oz/hash.html
-unsigned int hash(const char* word)
- {
-     unsigned long hash = 5381;
+unsigned int hash(const char *word)
+{
+    unsigned long hash = 5381;
 
-     while (*word++)
-     {
-         hash = ((hash << 5) + hash) + tolower(*word);
-     }
-     return hash % N;
- }
+    while (*word++)
+    {
+        hash = ((hash << 5) + hash) + tolower(*word);
+    }
+    return hash % N;
+}
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
     // TODO
-    FILE * dict_ptr = fopen(dictionary, "r");
+    FILE *dict_ptr = fopen(dictionary, "r");
     if (dict_ptr == NULL)
     {
         printf("Failed to load dictionary.");
@@ -67,7 +66,7 @@ bool load(const char *dictionary)
     char buffer[LENGTH + 1];
     while (fscanf(dict_ptr, "%s", buffer) != EOF)
     {
-        node * n = malloc(sizeof(node));
+        node *n = malloc(sizeof(node));
         if (n == NULL)
         {
             printf("Could not allocate memory for node pointer n");
@@ -96,12 +95,12 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        node * n = table[i];
+        node *n = table[i];
         while (n)
         {
-            node * cur = n;
-            free(cur);
+            node *cur = n;
             n = n->next;
+            free(cur);
         }
         if (i == N - 1)
         {
