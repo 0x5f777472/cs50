@@ -103,7 +103,7 @@ bool unload(void)
             free(cur);
             n = n->next;
         }
-        if ()
+        if (n == NULL && i == N - 1)
         {
             return true;
         }
