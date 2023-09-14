@@ -40,9 +40,10 @@ bool load(const char *dictionary)
     FILE * dict_ptr = fopen(dictionary, "r");
     if (dict_ptr == NULL)
     {
+        printf("Failed to load dictionary.");
         return false;
     }
-    
+
     return true;
 }
 
