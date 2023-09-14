@@ -44,7 +44,7 @@ bool load(const char *dictionary)
         return false;
     }
     char buffer[LENGTH];
-    while (fscanf(dict_ptr, "%s", ))
+    while (fscanf(dict_ptr, "%s", buffer) != EOF)
     {
         return true;
     }
