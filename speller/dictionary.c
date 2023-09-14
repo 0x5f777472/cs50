@@ -47,9 +47,9 @@ unsigned int hash(const char* word)
  {
      unsigned long hash = 5381;
 
-     for (const char* ptr = word; *ptr != '\0'; ptr++)
+     for (; *word != '\0'; word++)
      {
-         hash = ((hash << 5) + hash) + tolower(*ptr);
+         hash = ((hash << 5) + hash) + tolower(*word);
      }
      return hash % N;
  }
