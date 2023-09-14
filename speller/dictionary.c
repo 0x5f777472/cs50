@@ -27,6 +27,16 @@ int load_count = 0;
 bool check(const char *word)
 {
     // TODO
+    int hashed = hash(word);
+    node * n = table[hashed];
+    while (n)
+    {
+        if (strcasecmp(word, n->word) == 0)
+        {
+            return true;
+        }
+        n = n->next;
+    }
     return false;
 }
 
