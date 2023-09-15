@@ -7,9 +7,10 @@ def main():
 
 
 def is_valid(s):
-    if 2 <= len(s) <= 6 and s.isalnum() and s[:2].isalpha() and s.find("0"):
-        ...
-        return True
+    if 2 <= len(s) <= 6:
+        if s.isalpha():
+            return True
+        
     return False
 
 main()
