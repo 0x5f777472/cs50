@@ -7,12 +7,15 @@ while True:
         if x > y or y == 0:
             continue
         frac = 100 * x/y
-        if frac > 99:
+        if frac >= 99:
             print("F")
-        elif frac < 1:
+            break
+        elif frac <= 1:
             print("E")
+            break
         else:
             print(f"{round(frac)}%")
+            break
 
     except (ValueError, ZeroDivisionError):
-        pass
+        continue
