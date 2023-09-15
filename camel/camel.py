@@ -5,6 +5,7 @@ for i in range(len(camel)):
     if camel[i].isupper():
         camel_split.append(camel[last:i])
         last = i
-    if i == len(camel) - 1:
-        camel_split.append(camel[i:])
-print(camel_split)
+camel_split.append(camel[last:])
+snake = "_".join(camel_split)
+snake = snake.lower()
+print(f"snake_case: {snake}")
