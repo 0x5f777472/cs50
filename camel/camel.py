@@ -1,9 +1,10 @@
 camel = input("camelCase: ")
 camel_split = []
 last = 0
-for i, c in enumerate(camel):
-    if c.isupper():
+for i in range(len(camel)):
+    if camel[i].isupper():
         camel_split.append(camel[last:i])
-        print(f"last: {last}, i: {i}, c: {c}")
         last = i
+    if i == len(camel) - 1:
+        camel_split.append(camel[i:])
 print(camel_split)
