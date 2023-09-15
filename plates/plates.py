@@ -16,7 +16,7 @@ def is_valid(s):
                     passed = 1
             safe = 1
             for i in range(1, len(s) - 1):
-                if s[i].isnumeric() and s[i] == 0:
+                if s[i].isnumeric():
                     safe = 0
                     break
             if passed and safe:
