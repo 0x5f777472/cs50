@@ -1,1 +1,21 @@
-In light of the significant variability in the results and the limited number of trials conducted, it is inconclusive to determine a correlation between the hand used and reaction time based on the ruler drop test data.
+menu = {
+    "Baja Taco": 4.00,
+    "Burrito": 7.50,
+    "Bowl": 8.50,
+    "Nachos": 11.00,
+    "Quesadilla": 8.50,
+    "Super Burrito": 8.50,
+    "Super Quesadilla": 9.50,
+    "Taco": 3.00,
+    "Tortilla Salad": 8.00
+}
+total = float()
+while True:
+    try:
+        item = input("Item: ").title()
+        total += menu[item]
+        print(f"Total: ${total:.2f}")
+    except EOFError:
+        break
+    except KeyError:
+        continue
