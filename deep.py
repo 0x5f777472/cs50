@@ -1,1 +1,1 @@
-print("Yes") if input("What is the Answer to the Great Question of Life, the Universe, and Everything? ") == ("42" or "Forty Two" or "forty-two") else print("No")
+print("Yes") if input("What is the Answer to the Great Question of Life, the Universe, and Everything? ") in ["42", "Forty Two", "forty-two"] else print("No")
