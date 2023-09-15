@@ -1,0 +1,1 @@
+print("Yes") if input() == ("42" or "Forty Two" or "forty-two") else print("No")
