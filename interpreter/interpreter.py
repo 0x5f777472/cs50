@@ -1,3 +1,3 @@
-from re import search
+from re import split
 expression = input("Expression: ")
-x = 
+x = expression.split("\s")
