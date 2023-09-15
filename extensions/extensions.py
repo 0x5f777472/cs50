@@ -1,5 +1,5 @@
 name = input("File name: ")
-ext = name[name.rfind("."):]
+ext = name[name.rfind("."):].lower()
 match ext:
     case ".gif":
         print("image/gif")
