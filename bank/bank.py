@@ -1,5 +1,5 @@
 greet = input("Greeting: ")
-if greet == "Hello":
+if greet[:5].lower() == "hello":
     print("$0")
 elif greet[0].lower() == "h":
     print("$20")
