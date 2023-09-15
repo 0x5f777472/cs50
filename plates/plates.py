@@ -13,9 +13,6 @@ def is_valid(s):
         if s.isalnum():
             for i in range(2, len(s)):
                 if s[-(len(s) - i):].isnumeric():
-                    passed = 1
-            if passed:
-                return True
     return False
 
 main()
