@@ -1,0 +1,1 @@
+In light of the significant variability in the results and the limited number of trials conducted, it is inconclusive to determine a correlation between the hand used and reaction time based on the ruler drop test data.
