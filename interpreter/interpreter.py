@@ -1,5 +1,4 @@
-from re import split
-x, y, z = split("\s", input("Expression: "))
+x, y, z = input("Expression: ").split(" ")
 match y:
     case "+":
         print(float(int(x) + int(z)))
