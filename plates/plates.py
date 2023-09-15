@@ -10,7 +10,7 @@ def is_valid(s):
     if 2 <= len(s) <= 6 and s.isalnum():
         if s.isalpha():
             return True
-        if s[:2].isalpha() and s[-1:].isnumeric():
+        if s[:2].isalpha() and s[-2:].isnumeric():
             for i in range(len(s)):
                 if s[i].isdigit():
                     return not (s[i] == "0" or s[i:].isalpha())
