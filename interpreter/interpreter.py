@@ -1,3 +1,11 @@
 from re import split
-expression = input("Expression: ")
-x = expression.split("\s")
+x, y, z = split("\s", input("Expression: "))
+match y:
+    case "+":
+        print(float(int(x) + int(z)))
+    case "-":
+        print(float(int(x) - int(z)))
+    case "*":
+        print(float(int(x) * int(z)))
+    case "/":
+        print(int(x) / int(z))
