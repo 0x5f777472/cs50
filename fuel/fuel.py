@@ -5,7 +5,7 @@ while True:
         x = int(x)
         y = int(y)
         if x > y or y == 0:
-            pass
+            continue
         frac = 100 * x/y
         if frac > 99:
             print("F")
