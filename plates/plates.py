@@ -7,7 +7,10 @@ def main():
 
 
 def is_valid(s):
-    
+    if 2 <= len(s) <= 6 and :
+        ...
+        return true
 
+    return false
 
 main()
