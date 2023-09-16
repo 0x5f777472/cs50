@@ -11,7 +11,7 @@ try:
         sys.exit(1)
 except requests.RequestException:
     print("could not fetch a the data :-(")
-    sys.exit(2)
+    sys.exit(1)
 except ValueError:
     print("Command-line argument is not a number")
-    sys.exit(3)
+    sys.exit(1)
