@@ -10,6 +10,8 @@ else:
     try:
         with open(sys.argv[1], "r") as b:
             before = list(csv.reader(b))
+        for row in before:
+            last, first = row[0].split(", ")
         with open(sys.argv[2], "w") as a:
             after = csv.writer(a)
             for row in before:
