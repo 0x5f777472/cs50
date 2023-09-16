@@ -13,6 +13,6 @@ elif sys.argv[1][-3:] != ".csv":
 else:
     try:
         with open(sys.argv[1], "r") as file:
-            lines = file.DictReader
+            lines = csv.reader(file)
     except EnvironmentError:
         print("oops")
