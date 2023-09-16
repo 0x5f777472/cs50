@@ -14,8 +14,9 @@ else:
             lines = file.readlines()
         line_count = 0
         for line in lines:
-            if not line.isspace() and line.lstrip()[0]:
-                line_count += 1
+            if not line.isspace():
+                if line.lstrip()[0] != "#":
+                    line_count += 1
         print(line_count)
     except EnvironmentError:
         print("oops")
