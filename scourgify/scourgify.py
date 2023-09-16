@@ -13,7 +13,7 @@ else:
         with open(sys.argv[2], "w") as a:
             after = csv.writer(a)
             for row in before:
-                last, first = row[0].split(", ")
+                last, first = print(row[0].split(", "))
                 after.writerow([first] + [last] + row[1])
     except EnvironmentError:
         sys.exit(f"Could not read {sys.argv[1]}")
