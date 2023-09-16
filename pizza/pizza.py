@@ -1,6 +1,6 @@
-import csv
-import tabulate
 import sys
+import csv
+from tabulate import tabulate
 if len(sys.argv) < 2:
     print("Too few command-line arguments")
     sys.exit(1)
@@ -15,6 +15,6 @@ else:
         with open(sys.argv[1], "r") as file:
             lines = csv.reader(file)
             lines = list(lines)
-        print(tabulate(lines))
+        print(tabulate(lines, headers="firstrow", tablefmt="grid"))
     except EnvironmentError:
         print("File does not exist")
