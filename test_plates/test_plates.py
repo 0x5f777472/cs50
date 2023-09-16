@@ -16,5 +16,5 @@ def test_length():
 
 def test_end_numbers():
     assert is_valid("RU2112") == True
-    assert is_valid("RUSH2112") == True
+    assert is_valid("RUSH2112") == False
     assert is_valid("boobs1") == True
