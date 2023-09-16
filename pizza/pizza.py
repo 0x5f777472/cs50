@@ -13,12 +13,6 @@ elif sys.argv[1][-3:] != ".csv":
 else:
     try:
         with open(sys.argv[1], "r") as file:
-            lines = file.readlines()
-        line_count = 0
-        for line in lines:
-            if not line.isspace():
-                if line.lstrip()[0] != "#":
-                    line_count += 1
-        print(line_count)
+            lines = file.DictReader
     except EnvironmentError:
         print("oops")
