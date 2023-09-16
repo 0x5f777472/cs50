@@ -9,5 +9,8 @@ elif sys.argv[1][-3:] != ".py":
     print("Not a Python file")
     sys.exit(1)
 else:
-    with open(sys.argv[1], "r") as file:
-        ...
+    try:
+        with open(sys.argv[1], "r") as file:
+            print(file.readlines())
+    except EnvironmentError:
+        print("oops")
