@@ -1,6 +1,7 @@
 from random import randint
 def main():
     level = get_level()
+    score = 0
     for i in range(10):
         tries = 0
         x, y = generate_integer(level)
@@ -17,6 +18,8 @@ def main():
                 continue
         if tries == 3:
             print(f"{x} + {y} = {ans}")
+            continue
+        score += 1
 
 def get_level():
     while True:
