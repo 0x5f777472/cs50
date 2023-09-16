@@ -8,11 +8,10 @@ def main():
         while tries < 3:
             try:
                 attempt = int(input(f"{x} + {y} = "))
-            except:
-                continue
-            if attempt == ans:
-                break
-            else:
+                if attempt == ans:
+                    break
+                raise ValueError
+            except ValueError:
                 print("EEE")
                 tries += 1
                 continue
