@@ -1,2 +1,2 @@
 from emoji import emojize
-print(f"Output: {emojize(input("Input: "))}")
+print(f"Output: {emojize(input('Input: '))}")
