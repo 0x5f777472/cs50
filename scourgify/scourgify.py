@@ -11,6 +11,7 @@ else:
         with open(sys.argv[1], "r") as b:
             before = list(csv.reader(b))
         print(before)
-        with open(sys.argv[2])
+        with open(sys.argv[2], "w") as a:
+            a
     except EnvironmentError:
         sys.exit(f"Could not read {sys.argv[1]}")
