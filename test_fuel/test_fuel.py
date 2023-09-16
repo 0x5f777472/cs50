@@ -10,4 +10,4 @@ def test_convert():
         convert("2/1")
 
 def test_gauge():
-    ...
+    assert gauge()
