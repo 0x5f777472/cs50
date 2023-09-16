@@ -4,6 +4,7 @@ def test_alphabetical():
     assert is_valid("ACBD") == True
     assert is_valid("AAAAAA") == True
     assert is_valid("PP") == True
+    assert is_valid("b1234") == False
 
 def test_middle_numbers():
     assert is_valid("AB21CD") == False
@@ -20,3 +21,6 @@ def test_end_numbers():
     assert is_valid("BOOB1") == True
     assert is_valid("BO0BS1") == False
     assert is_valid("BB01") == False
+
+def test_other():
+    assert is_valid("IAM?") == False
