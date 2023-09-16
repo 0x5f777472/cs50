@@ -19,4 +19,4 @@ else:
                     line_count += 1
         print(line_count)
     except EnvironmentError:
-        print("oops")
+        print("File does not exist")
