@@ -12,8 +12,10 @@ def convert(fraction):
     x, y = fraction.split("/")
     x = int(x)
     y = int(y)
-    if x > y or y == 0:
+    if y == 0:
         raise ZeroDivisionError
+    elif x > y:
+        raise ValueError
     return round(100 * x/y)
 
 
