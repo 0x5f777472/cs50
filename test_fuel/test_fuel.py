@@ -10,4 +10,6 @@ def test_convert():
         convert("2/1")
 
 def test_gauge():
-    assert gauge()
+    assert gauge(99) == "F"
+    assert gauge(1) == "E"
+    assert gauge(50) == "50%"
