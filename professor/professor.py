@@ -5,7 +5,10 @@ def main():
         x, y = generate_integer(level)
         ans = x + y
         attempt = input(f"{x} + {y} = ")
-        
+        if attempt == ans:
+            continue
+        else:
+            print("EEE")
 
 
 
