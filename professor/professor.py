@@ -20,6 +20,7 @@ def main():
             print(f"{x} + {y} = {ans}")
             continue
         score += 1
+    print(f"Score: {score}")
 
 def get_level():
     while True:
