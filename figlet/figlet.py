@@ -7,7 +7,8 @@ if len(sys.argv) == 1:
     print("Output:")
     print(f.renderText(word))
 elif len(sys.argv) == 3 and sys.argv[1] in ["-f", "--font"]:
-    f = Figlet(font=sys.argv[2  ])
+    f = Figlet(font=sys.argv[2])
+    print("Output:")
     print(f.renderText(word))
 else:
     sys.exit(1)
