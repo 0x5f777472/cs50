@@ -13,7 +13,7 @@ months = [
     "December"
 ]
 while True:
-    date = input("Date: ")iiiiiiiiio
+    date = input("Date: ").strip()
     try:
         if date.split("/")[0].isnumeric():
             month, day, year = date.split("/")
@@ -24,6 +24,8 @@ while True:
 
         else:
             month, day, year = date.split(" ")
+            if day.isnumeric():
+                continue
             day = day.rstrip(",")
             month = months.index(month) + 1
             month, day, year = int(month), int(day), int(year)
