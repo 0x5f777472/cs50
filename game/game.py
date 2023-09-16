@@ -10,5 +10,6 @@ while True:
 while True:
     try:
         guess = int(input("Guess: "))
+        secret = randint(1, level)
     except:
         continue
