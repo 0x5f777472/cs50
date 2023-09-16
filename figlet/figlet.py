@@ -11,4 +11,5 @@ elif len(sys.argv) == 3 and sys.argv[1] in ["-f", "--font"]:
     print("Output:")
     print(f.renderText(word))
 else:
+    print("Invalid Usage")
     sys.exit(1)
