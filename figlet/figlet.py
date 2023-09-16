@@ -1,4 +1,3 @@
 import sys
 from pyfiglet import Figlet
-f = Figlet(font='slant')
-print(f.renderText(sys.argv[1]))
+print(Figlet(font=sys.argv[2]).renderText(input("Input: ")))
