@@ -1,2 +1,4 @@
+import inflect
 names = list()
-input("Name: ")
+while True:
+    names.append(input("Name: "))
