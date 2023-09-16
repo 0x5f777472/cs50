@@ -1,3 +1,4 @@
 import sys
 from pyfiglet import Figlet
-print(Figlet(font=sys.argv[2]).renderText(input("Input: ")))
+word = input("Input: ")
+print("Output:\n" + Figlet(font=sys.argv[2]).renderText(word))
