@@ -1,6 +1,6 @@
 from bank import value
 
 def test_value():
-    assert value("Hello there ") == "$0"
-    assert value("Heyyyyllo there ") == "$20"
-    assert value("eyyyyllo there ") == "$100"
+    assert value("Hello! You are stupid.") == "$0"
+    assert value("heyy! wassup!") == "$20"
+    assert value("eyy! wassup!") == "$100"
