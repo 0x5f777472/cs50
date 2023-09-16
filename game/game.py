@@ -9,7 +9,14 @@ while True:
         continue
 while True:
     try:
-        guess = int(input("Guess: "))
         secret = randint(1, level)
+        guess = int(input("Guess: "))
+        if guess < secret:
+            print("Too small!")
+        elif guess > secret:
+            print("Too large!")
+        else:
+            print("Just Right!")
+            break
     except:
         continue
