@@ -8,8 +8,9 @@ elif sys.argv[1][-4:] != ".csv":
     sys.exit("Not a CSV file")
 else:
     try:
-        with open(sys.argv[1], "r") as file:
-            lines = list(csv.reader(file))
-        print(lines)
+        with open(sys.argv[1], "r") as b:
+            before = list(csv.reader(b))
+        print(before)
+        with open(sys.argv[2])
     except EnvironmentError:
         sys.exit(f"Could not read {sys.argv[1]}")
