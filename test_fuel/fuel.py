@@ -13,7 +13,7 @@ def convert(fraction):
     x = int(x)
     y = int(y)
     if x > y or y == 0:
-        continue
+        raise ZeroDivisionError
     return round(100 * x/y)
 
 
