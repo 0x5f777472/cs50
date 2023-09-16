@@ -1,4 +1,4 @@
-import random
+from random import randint
 def main():
     ...
 
@@ -19,7 +19,7 @@ def generate_integer(level):
         case 1:
         case 2:
         case 3:
-        
+
 
 
 if __name__ == "__main__":
