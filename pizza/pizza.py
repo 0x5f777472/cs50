@@ -13,8 +13,8 @@ elif sys.argv[1][-4:] != ".csv":
 else:
     try:
         with open(sys.argv[1], "r") as file:
-            lines = csv.reader(file)
-            lines = list(lines)
+            lines = list(csv.reader(file))
         print(tabulate(lines, headers="firstrow", tablefmt="grid"))
     except EnvironmentError:
         print("File does not exist")
+        sys.exit(1)
