@@ -2,16 +2,20 @@ from random import randint
 def main():
     level = get_level()
     for i in range(10):
+        tries = 0
         x, y = generate_integer(level)
         ans = x + y
         while True:
             attempt = input(f"{x} + {y} = ")
             if attempt == ans:
-                continue
+                break
+            elif tries == 3:
+                print(f"{x} + {y} = {ans}")
+                break
             else:
                 print("EEE")
-
-
+                tries += 1
+                continue
 
 def get_level():
     while True:
@@ -22,7 +26,6 @@ def get_level():
             return level
         except:
             continue
-
 
 def generate_integer(level):
     match level:
@@ -35,8 +38,7 @@ def generate_integer(level):
         case 3:
             x = randint(100, 999)
             y = randint(100, 999)
-        return x, y
-
+    return x, y
 
 if __name__ == "__main__":
     main()
