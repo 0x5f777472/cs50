@@ -2,19 +2,17 @@ import sys
 import csv
 from tabulate import tabulate
 if len(sys.argv) < 2:
-    print("Too few command-line arguments")
-    sys.exit(1)
+    sys.exit("Too few command-line arguments")
 elif len(sys.argv) > 2:
-    print("Too many command-line arguments")
-    sys.exit(1)
+    sys.exit("Too many command-line arguments")
 elif sys.argv[1][-4:] != ".csv":
-    print("Not a CSV file")
-    sys.exit(1)
+    sys.exit("Not a CSV file")
 else:
     try:
         with open(sys.argv[1], "r") as file:
             lines = list(csv.reader(file))
         print(tabulate(lines, headers="firstrow", tablefmt="grid"))
     except EnvironmentError:
-        print("File does not exist")
-        sys.exit(1)
+        sys.exit("File does not exist")
+
+# ok just realized you can sys.exit("anything here") and that'll be printed... i'm just trying to finish this as quickly as i can... i only care about the oop sectionsubmit50 cs50/problems/2022/python/pizza
