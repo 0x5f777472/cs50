@@ -1,14 +1,13 @@
 def main():
     tweet = input("Input: ")
-    print("Output: ", end = "")
-    shorten(tweet)
+    print(shorten(tweet))
 
 
 def shorten(word):
     for i in range(len(word)):
         if word[i].lower() not in ["a", "e", "i", "o", "u"]:
             print(word[i], end = "")
-    print()
+    return f"Output: {}"
 
 if __name__ == "__main__":
     main()
