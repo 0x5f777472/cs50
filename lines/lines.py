@@ -11,6 +11,10 @@ elif sys.argv[1][-3:] != ".py":
 else:
     try:
         with open(sys.argv[1], "r") as file:
-            print(file.readlines())
+            lines = file.readlines()
+        line_count = 0
+        for line in lines:
+            if line.strip()[0] != "#":
+
     except EnvironmentError:
         print("oops")
