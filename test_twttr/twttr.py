@@ -4,6 +4,7 @@ def main():
 
 
 def shorten(word):
+    mydict: {}
     for i in range(len(word)):
         if word[i].lower() in ["a", "e", "i", "o", "u"]:
             word.delete(word[i])
