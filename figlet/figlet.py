@@ -1,8 +1,8 @@
 import sys
 import random
 from pyfiglet import Figlet
-word = input("Input: ")
 figlet = Figlet()
+word = input("Input: ")
 if len(sys.argv) == 1:
     print("Output:\n" + Figlet(font=random).renderText(word))
 
