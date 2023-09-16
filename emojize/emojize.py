@@ -1,1 +1,2 @@
-import emoji
+from emoji import emojize
+print(f"Output: {emojize(input("Input: "))}")
