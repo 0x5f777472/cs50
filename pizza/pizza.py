@@ -14,5 +14,5 @@ else:
     try:
         with open(sys.argv[1], "r") as file:
             lines = csv.reader(file)
-    except EnvironmentError:
+    except:
         print("oops")
