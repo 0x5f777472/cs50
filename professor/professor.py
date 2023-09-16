@@ -6,7 +6,10 @@ def main():
         x, y = generate_integer(level)
         ans = x + y
         while tries < 3:
-            attempt = input(f"{x} + {y} = ")
+            try:
+                attempt = int(input(f"{x} + {y} = "))
+            except:
+                continue
             if attempt == ans:
                 break
             else:
