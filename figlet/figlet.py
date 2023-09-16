@@ -1,9 +1,13 @@
 import sys
 import random
 from pyfiglet import Figlet
-figlet = Figlet()
 word = input("Input: ")
 if len(sys.argv) == 1:
-    font=random.choice(figlet.getFonts())
-    print("Output:\n" + figlet.figlet_format(word))
+    f = Figlet(font=random.choice(Figlet().getFonts()))
+    print("Output:")
+    print(f.renderText(word))
 elif len(sys.argv) == 3 and sys.argv[1] in ["-f", "--font"]:
+    f = Figlet(font=sys.argv[2  ])
+    print(f.renderText('text to render'))
+else:
+    sys.exit(1)
