@@ -3,7 +3,5 @@ p = inflect.engine()
 names = list()
 while True:
     name = input("Name: ")
-    if name == "penis":
-        break
     names.append(name)
-print(p.join(names))
+print(f"Adieu, adieu, to {p.join(names)}")
