@@ -4,11 +4,12 @@ def main():
     for i in range(10):
         x, y = generate_integer(level)
         ans = x + y
-        attempt = input(f"{x} + {y} = ")
-        if attempt == ans:
-            continue
-        else:
-            print("EEE")
+        while True:
+            attempt = input(f"{x} + {y} = ")
+            if attempt == ans:
+                continue
+            else:
+                print("EEE")
 
 
 
