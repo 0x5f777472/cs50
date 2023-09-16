@@ -1,6 +1,12 @@
 from random import randint
 def main():
-    ...
+    level = get_level()
+    for i in range(10):
+        x, y = generate_integer(level)
+        ans = x + y
+        attempt = input(f"{x} + {y} = ")
+        
+
 
 
 def get_level():
