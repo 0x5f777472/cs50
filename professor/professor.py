@@ -5,17 +5,16 @@ def main():
         tries = 0
         x, y = generate_integer(level)
         ans = x + y
-        while True:
+        while tries < 3:
             attempt = input(f"{x} + {y} = ")
             if attempt == ans:
-                break
-            elif tries == 3:
-                print(f"{x} + {y} = {ans}")
                 break
             else:
                 print("EEE")
                 tries += 1
                 continue
+        if tries == 3:
+            print(f"{x} + {y} = {ans}")
 
 def get_level():
     while True:
