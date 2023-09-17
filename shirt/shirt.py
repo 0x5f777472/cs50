@@ -13,6 +13,6 @@ else:
         shirt = Image.open("shirt.png")
         before = Image.open(sys.argv[1])
         after = Image.open(sys.argv[2], mode='w')
-        cropped = ImageOps.fit(before, )
+        cropped = ImageOps.fit(before, shirt.size)
     except FileNotFoundError:
         ...
