@@ -10,11 +10,10 @@ elif sys.argv[1].rpartition('.')[2].lower() != sys.argv[2].rpartition('.')[2].lo
     sys.exit("Input and output have different extensions")
 else:
     try:
-        
         shirt = Image.open("shirt.png")
-        before = Image.open(sys.argv[1])
-        cropped = ImageOps.fit(before, shirt.size)
-        cropped.paste(shirt, shirt)
-        cropped.save(sys.argv[2])
+        with Image.open(sys.argv[1]) as before:
+            cropped = ImageOps.fit(before, shirt.size)
+            cropped.paste(shirt, shirt)
+            cropped.save(sys.argv[2])
     except FileNotFoundError:
         sys.exit("File not found")
