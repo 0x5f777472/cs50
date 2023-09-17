@@ -14,5 +14,9 @@ else:
         before = Image.open(sys.argv[1])
         after = Image.open(sys.argv[2], mode='w')
         cropped = ImageOps.fit(before, shirt.size)
+        after = Image.paste(cropped)
+        Image.save(after)
     except FileNotFoundError:
-        ...
+        sys.exit("File not found")
+    else:
+        sys.exit("oops... (something went wrong)")
