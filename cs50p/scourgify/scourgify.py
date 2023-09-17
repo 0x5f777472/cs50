@@ -13,9 +13,7 @@ else:
         with open(sys.argv[2], "w") as a:
             after = csv.writer(a)
             after.writerow(["first", "last", "house"])
-            for row in before:
-                if row[0] == "name":
-                    continue
+            for row in before[1:]:
                 last, first = row[0].split(", ")
                 after.writerow([first, last, row[1]])
     except EnvironmentError:
