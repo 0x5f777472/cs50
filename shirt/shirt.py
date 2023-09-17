@@ -1,5 +1,5 @@
 import sys
-from PIL import Image
+from PIL import Image, ImageOps
 if len(sys.argv) < 3:
     sys.exit("Too few command-line arguments")
 elif len(sys.argv) > 3:
@@ -13,5 +13,6 @@ else:
         shirt = Image.open("shirt.png")
         before = Image.open(sys.argv[1])
         after = Image.open(sys.argv[2], mode='w')
+        cropped = ImageOps.fit(before, )
     except FileNotFoundError:
         ...
