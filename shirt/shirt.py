@@ -10,8 +10,8 @@ elif sys.argv[1].rpartition('.')[2].lower() != sys.argv[2].rpartition('.')[2].lo
     sys.exit("Input and output have different extensions")
 else:
     try:
-        before = sys.argv[1]
-        after = sys.argv[2]
         shirt = Image.open("shirt.png")
-    except:
+        before = Image.open(sys.argv[1])
+        after = Image.open(sys.argv[2], mode='w')
+    except FileNotFoundError:
         ...
