@@ -7,8 +7,8 @@ def main():
 
 
 def parse(s):
-    m = re.match(r"", s)
-    
+    m = re.search(r"youtube.com/.*?\"", s)
+    return m
 
 
 
