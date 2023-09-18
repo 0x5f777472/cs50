@@ -14,14 +14,24 @@ def convert(s):
         m2 = m.group(5)
         p2 = m.group(6)
         if m1 and m2:
-            m1 = int(m1)
-            m2 = int(m2)
+            if p1 == "PM":
+                m1 = int(m1) + 12
+                m2 = int(m2) + 12
+            else:
+                m1 = int(m1)
+                m2 = int(m2)
             return f"{h1:02}:{m1} to {h2:02}:{m2}"
         elif m1:
-            m1 = int(m1)
+            if p1 == "PM":
+                m1 = int(m1) + 12
+            else:
+                m1 = int(m1)
             return f"{h1:02}:{m1} to {h2:02}:00"
         elif m2:
-            m2 = int(m2)
+            if p1 == "PM":
+                m2 = int(m2) + 12
+            else:
+                m2 = int(m2)
             return f"{h1:02}:00 to {h2:02}:{m2}"
         else:
             return f"{h1:02}:00 to {h2:02}:00"
