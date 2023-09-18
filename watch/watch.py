@@ -7,10 +7,9 @@ def main():
 
 
 def parse(s):
-    ...
+    ahhh = re.match(r"", s)
 
 
-...
 
 
 if __name__ == "__main__":
