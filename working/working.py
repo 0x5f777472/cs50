@@ -15,11 +15,11 @@ def convert(s):
         p2 = m.group(6)
         if p1 == "PM" and h1 != 12:
             h1 += 12
-        elif h1 == 12:
+        elif p2 == "PM" and h1 == 12:
             h1 -= 12
         if p2 == "PM" and h2 != 12:
             h2 += 12
-        elif h2 == 12:
+        elif p2 == "PM" and h2 == 12:
             h2 -= 12
         if m1 and m2:
             return f"{h1:02}:{m1} to {h2:02}:{m2}"
