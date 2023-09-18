@@ -15,8 +15,8 @@ def convert(s):
         p2 = m.group(6)
         if p1 == "PM" and h1 != 12:
             h1 += 12
-        elif h2 == 12:
-            h2 -= 12
+        elif h1 == 12:
+            h1 -= 12
         if p2 == "PM" and h2 != 12:
             h2 += 12
         elif h2 == 12:
