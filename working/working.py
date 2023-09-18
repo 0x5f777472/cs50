@@ -6,10 +6,7 @@ def main():
 
 
 def convert(s):
-    ...
-
-
-...
+    m = re.search(r"", s)
 
 
 if __name__ == "__main__":
