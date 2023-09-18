@@ -17,7 +17,10 @@ def convert(s):
             h1 += 12
         if p2 == "PM" and h2 != 12:
             h2 += 12
-        
+        if p1 == "AM" and h1 == 12:
+            h1 -= 12
+        if p2 == "AM" and h2 == 12:
+            h2 -= 12
         if m1 and m2:
             return f"{h1:02}:{m1} to {h2:02}:{m2}"
         elif m1:
