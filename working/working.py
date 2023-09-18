@@ -7,12 +7,8 @@ def main():
 
 def convert(s):
     if m := re.search(r"([1-9]|1[0-2]):?([0-5][0-9])? (AM|PM) to ([1-9]|1[0-2]):?([0-5][0-9])? (AM|PM)", s):
-        h1 = int(m.group(1))
-        m1 = m.group(2)
-        p1 = m.group(3)
-        h2 = int(m.group(4))
-        m2 = m.group(5)
-        p2 = m.group(6)
+        h1, m1, p1, h2, m2, p2 = m.groups()
+        h1, h2 = int(h1), int(h2)
         if p1 == "PM" and h1 != 12:
             h1 += 12
         if p2 == "PM" and h2 != 12:
