@@ -6,7 +6,7 @@ def main():
 
 
 def convert(s):
-    if m := re.search(r"([1-9]|1[0-2])(?::([0-5][0-9]))? (AM|PM) to ([1-9]|1[0-2])(?::([0-5][0-9]))? (AM|PM)", s):
+    if m := re.search(r"([1-9]|1[0-2]):?([0-5][0-9])? (AM|PM) to ([1-9]|1[0-2]):?([0-5][0-9])? (AM|PM)", s):
         h1 = int(m.group(1))
         m1 = m.group(2)
         p1 = m.group(3)
