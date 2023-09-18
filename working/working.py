@@ -17,14 +17,9 @@ def convert(s):
             h1 -= 12
         if p2 == "AM" and h2 == 12:
             h2 -= 12
-        if m1 and m2:
-            return f"{h1:02}:{m1} to {h2:02}:{m2}"
-        elif m1:
-            return f"{h1:02}:{m1} to {h2:02}:00"
-        elif m2:
-            return f"{h1:02}:00 to {h2:02}:{m2}"
-        else:
-            return f"{h1:02}:00 to {h2:02}:00"
+        start_time = f"{h1:02}:{m1:02}" if m1 else f"{h1:02}:00"
+        end_time = f"{h2:02}:{m2:02}" if m2 else f"{h2:02}:00"
+        return f"{start_time} to {end_time}"
     raise ValueError
 if __name__ == "__main__":
     main()
