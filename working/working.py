@@ -13,10 +13,14 @@ def convert(s):
         h2 = int(m.group(4))
         m2 = m.group(5)
         p2 = m.group(6)
-        if p1 == "PM":
+        if p1 == "PM" and h1 != 12:
             h1 += 12
-        if p2 == "PM":
+        elif h2 == 12:
+            h2 -= 12
+        if p2 == "PM" and h2 != 12:
             h2 += 12
+        elif h2 == 12:
+            h2 -= 12
         if m1 and m2:
             return f"{h1:02}:{m1} to {h2:02}:{m2}"
         elif m1:
