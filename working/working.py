@@ -21,6 +21,6 @@ def convert(s):
             return f"{h1:02}:00 to {h2:02}:{m2}"
         else:
             return f"{h1:02}:00 to {h2:02}:00"
-
+    raise ValueError
 if __name__ == "__main__":
     main()
