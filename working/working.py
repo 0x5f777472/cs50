@@ -11,7 +11,7 @@ def convert(s):
         p1 = m.group(3)
         h2 = m.group(4)
         p2 = m.group(6)
-        if None in m.groups:
+        if not all(m.groups):
             return f"{h1:02}:00 to {h2:02}:00"
         m1 = m.group(2)
         m2 = m.group(5)
