@@ -1,5 +1,4 @@
 import re
-import sys
 
 
 def main():
@@ -7,7 +6,8 @@ def main():
 
 
 def count(s):
-    ...
+    m = re.findall(r"[\b]um[\b]", s)
+    return len(m)
 
 
 if __name__ == "__main__":
