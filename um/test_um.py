@@ -6,7 +6,7 @@ def test_individual():
 
 def test_ends():
     assert count("Um blah Um") == 2
-    assert count("Um blah") == 2
+    assert count("Um blah") == 1
 
 def test_punctuation():
     assert count("um, what? what, um, are, um, you, um, saying???? stop saying um") == 5
