@@ -6,7 +6,7 @@ def main():
 
 
 def count(s):
-    m = re.findall(r"[\b]um[\b]", s)
+    m = re.findall(r"[^A-Za-z0-9]?um[^A-Za-z0-9]?", s)
     return len(m)
 
 
