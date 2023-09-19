@@ -7,7 +7,7 @@ def test_not_times():
     with raises(ValueError):
         convert("don't blink")
     with raises(ValueError):
-        convert("12:60 PM to 13:12 AM")
+        convert("12:60 AM to 13:12 PM")
 
 def test_no_minutes():
     assert convert("9 AM to 5 PM") == "09:00 to 17:00"
