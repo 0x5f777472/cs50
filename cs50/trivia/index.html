@@ -12,17 +12,23 @@
                 let incorrect = document.querySelectorAll('.incorrect');
                 correct.addEventListener('click', function() {
                     correct.style.backgroundColor = 'green';
-                    document.getElementById('result').innerHTML = 'Correct!';
+                    document.querySelector('#result').innerHTML = 'Correct!';
                 });
                 for (const option of incorrect) {
                     option.addEventListener('click', function() {
                         option.style.backgroundColor = 'red';
-                        document.getElementById('result').innerHTML = 'Incorrect';
+                        document.querySelector('#result').innerHTML = 'Incorrect';
                     });
                 }
-                let flargle = document.getElementById('gavin');
-                document.getElementById('blah').addEventListener('click', function() {
-                    flargle.style.backgroundColor = 'red'
+                let input = document.querySelector('#gavin');
+                document.queryselector('#blah').addEventListener('click', function() {
+                    if (input.value == 'gavin cheng') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#result2').innerHTML = 'Correct!'
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#result2').innerHTML = 'Incorrect'
+                    }
                 });
             });
         </script>
