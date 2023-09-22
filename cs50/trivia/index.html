@@ -8,17 +8,15 @@
         <title>Trivia!</title>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                function check() {
-                    let correct = document.querySelector('.correct');
-                    let incorrect = document.querySelectorAll('.incorrect');
+                let correct = document.querySelector('.correct');
+                let incorrect = document.querySelectorAll('.incorrect');
+                option.addEventListener('click', function() {
+                    option.style.backgroundColor = 'green';
+                });
+                for (const option of incorrect) {
                     option.addEventListener('click', function() {
-                        option.style.backgroundColor = 'green';
+                        option.style.backgroundColor = 'red';
                     });
-                    for (const option of incorrect) {
-                        option.addEventListener('click', function() {
-                            option.style.backgroundColor = 'red';
-                        });
-                    }
                 }
             }
             </script>
