@@ -8,14 +8,16 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            let correct = document.querySelectorAll('.correct');
-            let incorrect = document.querySelectorAll('.incorrect');
-            correct.addEventListener('click', function() {
-                correct.style.backgroundColor = 'green';
-            });
-            incorrect.addEventListener('click', function() {
-                incorrect.style.backgroundColor = 'red';
-            });
+            function check() {
+                let correct = document.querySelectorAll('.correct');
+                let incorrect = document.querySelectorAll('.incorrect');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                });
+                incorrect.addEventListener('click', function() {
+                    incorrect.style.backgroundColor = 'red';
+                });
+            }
             </script>
     </head>
 
