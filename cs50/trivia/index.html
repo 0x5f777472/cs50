@@ -9,14 +9,18 @@
         <script>
             // TODO: Add code to check answers to questions
             function check() {
-                let correct = document.getElementsByClassName('correct');
+                let correct = document.querySelectorAll('.correct');
                 let incorrect = document.querySelectorAll('.incorrect');
-                correct.addEventListener('click', function() {
-                    correct.style.backgroundColor = 'green';
-                });
-                // incorrect.addEventListener('click', function() {
-                //     incorrect.style.backgroundColor = 'red';
-                // });
+                for (const option of correct) {
+                    option.addEventListener('click', function() {
+                        option.style.backgroundColor = 'green';
+                    });
+                }
+                for (const option of incorrect) {
+                    option.addEventListener('click', function() {
+                        option.style.backgroundColor = 'red';
+                    });
+                }
             }
             </script>
     </head>
