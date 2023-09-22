@@ -10,11 +10,15 @@
             document.addEventListener('DOMContentLoaded', function() {
                 let correct = document.querySelector('.correct');
                 let incorrect = document.querySelectorAll('.incorrect');
-                correct.addEventListener('click', function() {correct.style.backgroundColor = 'green';});
-                document.getElementById('result').innerHTML = 'Correct!';
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.getElementById('result').innerHTML = 'Correct!';
+                });
                 for (const option of incorrect) {
-                    option.addEventListener('click', function() {option.style.backgroundColor = 'red';});
-                    document.getElementById('result').innerHTML = 'Incorrect';
+                    option.addEventListener('click', function() {
+                        option.style.backgroundColor = 'red';
+                        document.getElementById('result').innerHTML = 'Incorrect';
+                    });
                 }
             });
         </script>
