@@ -9,11 +9,11 @@
         <link href="styles.css" rel="stylesheet">
         <title>bob's site!</title>
         <script>
-          function color() {
+          document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#submit').addEventListener('click', function() {
               document.body.style.backgroundColor = document.querySelector('#colouur').value;
             });
-          }
+          });
         </script>
     </head>
     <body>
