@@ -11,9 +11,9 @@
         <script>
           document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#submit').addEventListener('click', function() {
-              const newColor = document.querySelector('#colouur').value;
-              document.body.style.backgroundColor = newColor;
-              document.querySelector('.navbar').style.backgroundColor = newColor;
+              const color = document.querySelector('#colouur').value;
+              document.body.style.backgroundColor = color;
+              document.querySelector('.navbar').style.setProperty('background-color', color, 'important');
             });
           });
         </script>
