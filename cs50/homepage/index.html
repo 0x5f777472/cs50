@@ -10,14 +10,10 @@
         <title>bob's site!</title>
         <script>
           function color() {
-            document.body.style.backgroundColor = 'green';
+            document.querySelector('#submit').addEventListener('click', function() {
+              document.body.style.backgroundColor = document.querySelector('#colouur').value;
+            });
           }
-          document.querySelector('#blah').addEventListener('click', function() {
-                    if (input.value == 'gavin cheng') {
-                        input.style.backgroundColor = 'green';
-                        document.querySelector('#result2').innerHTML = 'Correct!'
-                    }
-                });
         </script>
     </head>
     <body>
@@ -42,7 +38,7 @@
               </div>
             </div>
           </nav>
-          <input type="text"></input>
+          <input type="text" id="colouur"></input>
           <button id="submit">color!</button>
     </body>
 </html>
