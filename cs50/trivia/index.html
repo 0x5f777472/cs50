@@ -8,11 +8,15 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            function sheep {
-                let value = document.querySelectorAll('.correct').value;
-                
-            }
-        </script>
+            let correct = document.querySelectorAll('.correct')
+            let incorrect = document.querySelectorAll('.incorrect')
+            correct.addEventListener('click', function() {
+                correct.style.backgroundColor = 'green';
+            });
+            incorrect.addEventListener('click', function() {
+                incorrect.style.backgroundColor = 'red';
+            });
+            </script>
     </head>
 
     <body>
