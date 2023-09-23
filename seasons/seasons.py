@@ -22,7 +22,7 @@ def get_mins(timedelta):
 
 def wordify(mins):
     words = p.number_to_words(mins, andword="")
-    return words.capitalize().replace(",","",1)
+    return "".join(words.capitalize().rsplit(",",1))
 
 if __name__ == "__main__":
     main()
