@@ -1,5 +1,5 @@
+import sys
 from datetime import date
-
 
 def main():
     timedelta = get_delta()
@@ -9,8 +9,11 @@ def main():
 
 def get_delta():
     birth_string = input("Date of Birth: ")
-    birth = date.fromisoformat(birth_string)
-    return date.today() - birth
+    try:
+        birth = date.fromisoformat(birth_string)
+        return date.today() - birth
+    except:
+        sys.exit("Invalid Date")
 
 def get_mins(timedelta):
     return timedelta.days * 1440
