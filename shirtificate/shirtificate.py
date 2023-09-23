@@ -11,8 +11,8 @@ class shirtificate(FPDF):
         self.set_font("courier", size=48)
         self.cell(0, 55, "CS50 Shirtificate!", align="C")
         self.ln(20)
-        self.set_font("courier", size=24)
-        self.set_text_color(255, 255, 255)
+        self.set_font(size=24)
+        self.set_text_color(255)
         self.cell(0, 225, self.name, align="C")
         self.output("shirtificate.pdf")
 
