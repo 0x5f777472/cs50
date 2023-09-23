@@ -1,7 +1,8 @@
 from fpdf import FPDF
-pdf = FPDF()
-pdf.add_page()
 
+class shirtificate(FPDF):
+    def ...():
+        ...
 
 
 def main():
