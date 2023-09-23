@@ -1,5 +1,7 @@
 import sys
 from datetime import date
+import inflect
+p = inflect.engine()
 
 def main():
     timedelta = get_delta()
@@ -19,7 +21,8 @@ def get_mins(timedelta):
     return timedelta.days * 1440
 
 def wordify(mins):
-
+    words = p.number_to_words(mins)
+    return words
 
 if __name__ == "__main__":
     main()
