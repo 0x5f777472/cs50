@@ -10,7 +10,7 @@ def main():
 
 def get_birth():
     birth_string = input("Date of Birth: ")
-    birth = date(birth_string.split('_'))
+    birth = date.fromisoformat(birth_string)
     print(birth)
 
 if __name__ == "__main__":
