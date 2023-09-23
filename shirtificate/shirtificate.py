@@ -8,10 +8,10 @@ class shirtificate(FPDF):
     def generate_picture(self):
         self.add_page()
         self.image("shirtificate.png", 10, 70, 190)
-        self.set_font("inconsolata", size=48)
+        self.set_font("courier", size=48)
         self.cell(0, 57, "CS50 Shirtificate", align="C")
         self.ln(20)
-        self.set_font("inconsolata", size=24)
+        self.set_font("courier", size=24)
         self.set_text_color(255, 255, 255)
         self.cell(0, 213, self.name, align="C")
         self.output("shirtificate.pdf")
