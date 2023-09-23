@@ -3,7 +3,6 @@ from datetime import date
 
 def main():
     timedelta = get_delta()
-    print(timedelta)
     mins = get_mins(timedelta)
     print(wordify(mins))
 
@@ -14,7 +13,7 @@ def get_delta():
     return date.today() - birth
 
 def get_mins(timedelta):
-    return timedelta
+    return timedelta.days * 1440
 
 def wordify(mins):
     return mins
