@@ -1,4 +1,4 @@
-from seasons import get_mins, wordify
+from seasons import wordify
 
-def test_get_mins():
-    assert get_mins()
+def test_wordify():
+    assert wordify(100) == "One hundred minutes"
