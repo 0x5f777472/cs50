@@ -13,5 +13,11 @@ def get_delta():
     birth = date.fromisoformat(birth_string)
     return date.today() - birth
 
+def get_mins(timedelta):
+    return timedelta
+
+def wordify(mins):
+    return mins
+
 if __name__ == "__main__":
     main()
