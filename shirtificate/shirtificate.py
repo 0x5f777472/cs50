@@ -15,13 +15,12 @@ class shirtificate(FPDF):
         self.add_page()
         self.set_font("helvetica", size=24)
         self.set_text_color(255, 255, 255)
-        self.cell(0, 213, f"{self.name} took CS50", align="C")
+        self.cell(0, 213, self.name, align="C")
         self.output("shirtificate.pdf")
 
 
 def main():
-    name = input("Name: ")
-    pdf = shirtificate(name)
+    pdf = shirtificate(input("Name: ") + " took CS50")
     pdf.header()
     pdf.generate_shirt()
 
