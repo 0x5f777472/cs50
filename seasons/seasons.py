@@ -11,7 +11,7 @@ def main():
 def get_delta():
     birth_string = input("Date of Birth: ")
     birth = date.fromisoformat(birth_string)
-    return now() - birth
+    return date.today() - birth
 
 if __name__ == "__main__":
     main()
