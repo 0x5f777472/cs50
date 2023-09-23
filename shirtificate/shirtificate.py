@@ -1,6 +1,6 @@
 from fpdf import FPDF
 
-class shirtificate(FPDF):
+class Shirtificate(FPDF):
     def __init__(self, name):
         super().__init__()
         self.name = name
@@ -18,7 +18,7 @@ class shirtificate(FPDF):
 
 
 def main():
-    pdf = shirtificate(input("Name: ") + " took CS50")
+    pdf = Shirtificate(input("Name: ") + " took CS50")
     pdf.generate_picture()
 
 
