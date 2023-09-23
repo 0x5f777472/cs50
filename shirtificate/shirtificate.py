@@ -10,6 +10,7 @@ class shirtificate(FPDF):
 
 def main():
     name = input("Name: ").strip() + " took CS50"
+    shirtificate(name).example
 
 if __name__ == "__main__":
     main()
