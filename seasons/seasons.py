@@ -9,8 +9,9 @@ def main():
 
 
 def get_birth():
-    birthdate = input("Date of Birth: ")
-    
+    birth_string = input("Date of Birth: ")
+    birth = date(birth_string.split('_'))
+    print(birth)
 
 if __name__ == "__main__":
     main()
