@@ -1,1 +1,1 @@
-import fpdf2
+from fpdf import FPDF
