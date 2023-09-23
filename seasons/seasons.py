@@ -22,7 +22,7 @@ def get_mins(timedelta):
 
 def wordify(mins):
     words = p.number_to_words(mins, andword="")
-    return "".join(words.capitalize().rsplit(",",1)) if "million" in words else words.capitalize()
+    return "".join(words.capitalize().rsplit(",",1).append(" minutes")) if "million" in words else words.capitalize() + " minutes"
 
 if __name__ == "__main__":
     main()
