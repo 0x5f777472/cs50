@@ -21,7 +21,7 @@ def get_mins(timedelta):
     return timedelta.days * 1440
 
 def wordify(mins):
-    words = p.number_to_words(mins)
+    words = p.number_to_words(mins, andword="")
     return words
 
 if __name__ == "__main__":
